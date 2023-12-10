@@ -27,6 +27,9 @@ void Worker::shou()
    {
        cout << Login << "   " << Password << "   " << Root;
    }
+Worker* Worker::GetPointr(){
+    return this;
+    }
 
 
 

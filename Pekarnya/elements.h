@@ -27,6 +27,8 @@ public:
    string GetRoot();
 
    void shou();
+
+   Worker* GetPointr();
 };
 
 class Product {

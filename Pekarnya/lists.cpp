@@ -1,5 +1,13 @@
 #include "lists.h"
 
+#include <iostream>
+#include <list>
+#include <string>
+#include <conio.h>
+#include <cstdlib>
+#include <windows.h>
+#include <iostream>
+
 using namespace std;
 
 
@@ -65,6 +73,15 @@ void ListWorkers::Control(){
             default:{}
             }
     }
+}
+Worker* ListWorkers::Check(string N){
+    list<Worker>::iterator ItrToFind;
+    ItrToFind = Spisok.begin();
+    for (ItrToFind = Spisok.begin(); ItrToFind != Spisok.end(); ++ItrToFind)
+        if (ItrToFind->GetName() == N){
+            return ItrToFind->GetPointr();
+        };
+    return nullptr;
 }
 
 

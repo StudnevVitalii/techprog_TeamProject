@@ -1,10 +1,13 @@
 #ifndef LISTS_H
 #define LISTS_H
-#include <string>
 #include <iostream>
-#include <fstream>
 #include <list>
+#include <string>
 #include <conio.h>
+#include <cstdlib>
+#include <windows.h>
+#include <iostream>
+
 
 #include "elements.h"
 
@@ -24,5 +27,6 @@ public:
     void shoulist();
     void AddElement(Worker);
     void Control();
+    Worker* Check(string N);
 };
 #endif // LISTS_H

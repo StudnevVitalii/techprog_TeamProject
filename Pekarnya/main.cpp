@@ -14,6 +14,16 @@ int main()
     WorkerList.AddElement(Vadim);
     WorkerList.AddElement(Andrey);
     WorkerList.AddElement(Ivan);
+    Worker* W1 = WorkerList.Check("Ivan");
+    if (W1 != nullptr){
+        W1->shou();
+        system("pause");
+    }
+    W1 = WorkerList.Check("1");
+    if (W1 == nullptr){
+        cout << "ok" << endl;
+        system("pause");
+    }
     WorkerList.Control();
     system("pause");
 
