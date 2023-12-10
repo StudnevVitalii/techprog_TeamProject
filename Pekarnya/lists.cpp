@@ -70,6 +70,10 @@ void ListWorkers::Control(){
                     {
                         SelectedElement++;
                     }
+                    if (SelectedElement  == Spisok.end())
+                    {
+                        SelectedElement--;
+                    }
                     break;
                     case 72: // ^
                     if (SelectedElement != Spisok.begin())

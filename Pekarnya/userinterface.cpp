@@ -29,7 +29,7 @@ void UserInterface::Login(){
             if(buff->GetPassword() == password){
                 switch (buff->GetRoot()[0]) {
                 case 'a':
-                    cout << "admin";
+                    WorkerList.Control();
                     exit = true;
                     break;
                 case 'p':
