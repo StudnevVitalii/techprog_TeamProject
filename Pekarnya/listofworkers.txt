@@ -1,0 +1,6 @@
+spisok_rabochih 5
+ivanov 11672 admin
+bulochkin 16278 pekar
+korobkin 73496 rabochiy
+abibov 83593 pekar
+sidorov 75373 rabochiy
