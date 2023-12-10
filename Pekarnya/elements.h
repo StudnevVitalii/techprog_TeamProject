@@ -30,5 +30,24 @@ public:
 };
 
 
+class Ingridient {
+
+private:
+    string Name;
+    int Value;
+    string ED;
+public:
+   Ingridient();
+
+   Ingridient(string,int,string);
+
+   string GetName();
+
+   int GetValue();
+
+   void shou();
+
+};
+
 #endif // ELEMENTS
 
