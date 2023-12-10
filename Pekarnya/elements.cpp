@@ -29,6 +29,7 @@ void Worker::shou()
    }
 
 
+
 Ingridient::Ingridient()
     {
 
@@ -52,4 +53,28 @@ int Ingridient::GetValue()
 void Ingridient::shou()
    {
        cout << Name << "   " << Value << "   " << ED << "   "  ;
+   }
+
+
+Product::Product()
+    {
+
+    }
+Product::Product(string n,int v)
+   {
+       Name = n;
+       Value = v;
+   }
+string Product::GetName()
+   {
+       return Name;
+   }
+int Product::GetValue()
+   {
+       return Value;
+   }
+void Product::shou()
+   {
+       cout << Name << "   " << Value <<  "   "  ;
+
    }
