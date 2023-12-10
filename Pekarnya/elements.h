@@ -29,6 +29,25 @@ public:
    void shou();
 };
 
+class Product {
+private:
+string Name;
+int Value;
+
+
+public:
+
+    Product();
+
+    Product(string,int );
+
+   string GetName();
+
+   int GetValue();
+
+   void shou();
+
+};
 
 #endif // ELEMENTS
 

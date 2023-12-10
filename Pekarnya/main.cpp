@@ -5,7 +5,12 @@ using namespace std;
 
 int main()
 {
-    Worker Vadim("1","2","3");
+//    Worker Vadim("1","2","3");
+//    Vadim.shou();
+//    system("pause");
+
+
+    Product Vadim("1", 2);
     Vadim.shou();
     system("pause");
 }
