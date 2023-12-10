@@ -5,3 +5,6 @@ UserInterface::UserInterface()
 
 }
 
+void UserInterface::Login(){
+
+}
