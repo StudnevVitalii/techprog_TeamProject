@@ -17,6 +17,19 @@ Worker::Worker(string L,string P, string R)
         Password = P;
         Root = R;
    }
+Worker::Worker(ifstream *file)
+{
+    string L;
+    string P;
+    string R;
+
+    getline(*file, L, ' ');
+    getline(*file, P, ' ');
+    getline(*file, R);
+    Login = L;
+    Password = P;
+    Root = R;
+}
 string Worker::GetName()
    {
        return Login;

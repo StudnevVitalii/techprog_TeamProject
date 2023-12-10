@@ -6,7 +6,7 @@
 #include <conio.h>
 #include <cstdlib>
 #include <windows.h>
-#include <iostream>
+#include <fstream>
 
 
 #include "elements.h"
@@ -22,6 +22,7 @@ private:
 public:
     ListWorkers();
     ListWorkers(string N);
+    ListWorkers(ifstream *file);
     void shou();
     string GetName();
     void shoulist();

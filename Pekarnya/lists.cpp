@@ -19,6 +19,21 @@ ListWorkers::ListWorkers(){
 ListWorkers::ListWorkers(string N){
     Name = N;
 }
+ListWorkers::ListWorkers(ifstream *file)
+{
+    string N;
+    string last;
+    getline(*file, N, ' ');
+    Name = N;
+    getline(*file, last);
+    int count = 1;
+    while ((file->eof() != true) && (count <= stoi(last)))
+    {
+       Worker* NowyRabochiy = new Worker(file);
+       ListWorkers::AddElement(*NowyRabochiy);
+       count++;
+    }
+}
 void ListWorkers::shou(){
     cout << Name;
 }

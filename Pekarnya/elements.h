@@ -20,6 +20,8 @@ public:
 
    Worker(string,string,string);
 
+   Worker(ifstream *file);
+
    string GetName();
 
    string GetPassword();
