@@ -64,9 +64,17 @@ void ListWorkers::Control(){
             case 'd':
 
                     break;
-            case 'a':
+            case 'a':{
+                    Worker* NowyRabochiy = new Worker;
+                    Worker* TestWorker = ListWorkers::Check(NowyRabochiy->GetName());
+                    if (TestWorker == nullptr){
+                        ListWorkers::AddElement(*NowyRabochiy);
+                    }else{
+                        cout << "that user already exist";
+                        _getch();
+                    }
 
-                    break;
+                    break;}
             case 27: // esc
                 conec = false;
                 break;
