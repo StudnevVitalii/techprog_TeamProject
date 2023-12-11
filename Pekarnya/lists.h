@@ -48,4 +48,22 @@ public:
     void Control();
     Ingredient* Check(string N);
 };
+
+class ListIngredientForRecepi {
+private:
+    list<IngredientForRecepi> Spisok;
+    list<IngredientForRecepi>::iterator SelectedElement;
+    string Name;
+
+public:
+    ListIngredientForRecepi();
+    ListIngredientForRecepi(string N);
+    ListIngredientForRecepi(ifstream *file);
+    void shou();
+    string GetName();
+    void shoulist();
+    void AddElement(IngredientForRecepi);
+    void Control();
+    IngredientForRecepi* Check(string N);
+};
 #endif // LISTS_H
