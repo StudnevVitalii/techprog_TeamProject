@@ -82,6 +82,8 @@ public:
    IngredientForRecepi(string,int,string);
 
    IngredientForRecepi(ifstream *file);
+
+   IngredientForRecepi* GetPointr();
 };
 
 
