@@ -5,6 +5,7 @@ object_script.*.Debug
 /.qmake.stash
 *.qbs.user
 *.qbs.user.*
+*user*
 *.moc
 moc_*.cpp
 moc_*.h

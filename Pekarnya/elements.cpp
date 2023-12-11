@@ -45,7 +45,7 @@ void Worker::shou()
    {
        cout << Login << "   " << Password << "   " << Root;
    }
-Worker* Worker::GetPointr(){
+Worker* Worker::GetPointr(){ //итератор сам не даёт указатель
     return this;
     }
 
