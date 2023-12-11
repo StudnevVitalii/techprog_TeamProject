@@ -44,7 +44,7 @@ public:
     void shou();
     string GetName();
     void shoulist();
-    void AddElement(Ingridient);
+    void AddElement(Ingredient);
     void Control();
     Ingredient* Check(string N);
 };

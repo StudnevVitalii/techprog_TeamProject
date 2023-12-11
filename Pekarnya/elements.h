@@ -64,11 +64,15 @@ public:
 
    Ingredient(string,int,string);
 
+   Ingredient(ifstream *file);
+
    string GetName();
 
    int GetValue();
 
    void shou();
+
+   Ingredient* GetPointr();
 
 };
 
