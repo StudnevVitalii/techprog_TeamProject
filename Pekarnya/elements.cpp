@@ -103,7 +103,10 @@ IngredientForRecepi::IngredientForRecepi(ifstream *file):Ingredient(file){}
 
 Product::Product()
     {
-
+    cout << "Vvedite Name: " << endl;
+    cin >> this->Name;
+    cout << "Vvedite Value: " << endl;
+    cin >> this->Value;
     }
 Product::Product(string n,int v)
    {

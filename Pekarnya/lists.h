@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <windows.h>
 #include <fstream>
+#include <ctime>
 
 
 #include "elements.h"

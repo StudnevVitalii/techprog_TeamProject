@@ -288,13 +288,18 @@ void ListReports::Control(){
 
                     break;
             case 'a':{
-                    Product* NowyRabochiy = new Product;
-                    Product* TestWorker = ListReports::Check(NowyRabochiy->GetName());
-                    if (TestWorker == nullptr){
-                        ListReports::AddElement(*NowyRabochiy);
-                    }else{
-                        cout << "that user already exist";
-                        _getch();
+                    time_t t = time(nullptr);
+                    tm* now = localtime(&t);
+                    string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
+                    if(this->Name == today){
+                        Product* NowyRabochiy = new Product;
+                        Product* TestWorker = ListReports::Check(NowyRabochiy->GetName());
+                        if (TestWorker == nullptr){
+                            ListReports::AddElement(*NowyRabochiy);
+                        }
+                    }
+                    else{
+                        cout << "Mozhno izmenyat tolko za tekushchij den!";
                     }
 
                     break;}
