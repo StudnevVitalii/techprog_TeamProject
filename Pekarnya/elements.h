@@ -45,11 +45,15 @@ public:
 
     Product(string,int );
 
+    Product(ifstream *file);
+
    string GetName();
 
    int GetValue();
 
    void shou();
+
+   Product* GetPointr();
 
 };
 

@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <windows.h>
 #include <fstream>
+#include <ctime>
 
 
 #include "elements.h"
@@ -49,6 +50,7 @@ public:
     Ingredient* Check(string N);
 };
 
+
 class ListIngredientForRecepi {
 private:
     list<IngredientForRecepi> Spisok;
@@ -65,5 +67,24 @@ public:
     void AddElement(IngredientForRecepi);
     void Control();
     IngredientForRecepi* Check(string N);
+};
+
+class ListReports {
+private:
+    list<Product> Spisok;
+    list<Product>::iterator SelectedElement;
+    string Name;
+
+public:
+    ListReports();
+    ListReports(string N);
+    ListReports(ifstream *file);
+    void shou();
+    string GetName();
+    void shoulist();
+    void AddElement(Product);
+    void Control();
+    Product* Check(string N);
+
 };
 #endif // LISTS_H
