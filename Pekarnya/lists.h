@@ -48,4 +48,22 @@ public:
     void Control();
     Ingredient* Check(string N);
 };
+
+class ListReports {
+private:
+    list<Product> Spisok;
+    list<Product>::iterator SelectedElement;
+    string Name;
+
+public:
+    ListReports();
+    ListReports(string N);
+    ListReports(ifstream *file);
+    void shou();
+    string GetName();
+    void shoulist();
+    void AddElement(Product);
+    void Control();
+    Product* Check(string N);
+};
 #endif // LISTS_H

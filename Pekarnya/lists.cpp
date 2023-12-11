@@ -212,3 +212,105 @@ Ingredient* ListIngredients::Check(string N){
         };
     return nullptr;
 }
+
+
+
+
+
+ListReports::ListReports(){
+
+}
+ListReports::ListReports(string N){
+    Name = N;
+}
+ListReports::ListReports(ifstream *file)
+{
+    string N;
+    string last;
+    getline(*file, N, ' ');
+    Name = N;
+    getline(*file, last);
+    int count = 1;
+    while ((file->eof() != true) && (count <= stoi(last)))
+    {
+       Product* NowyRabochiy = new Product(file);
+       ListReports::AddElement(*NowyRabochiy);
+       count++;
+    }
+}
+void ListReports::shou(){
+    cout << Name;
+}
+void ListReports::shoulist(){
+    cout << endl;
+    list<Product>::iterator ItrForShouing;
+    ItrForShouing = Spisok.begin();
+    for (ItrForShouing = Spisok.begin(); ItrForShouing != Spisok.end(); ++ItrForShouing){
+        ItrForShouing->shou();
+        if (ItrForShouing == SelectedElement){
+            cout << " <---";
+        }
+        cout << endl;
+    }
+}
+void ListReports::AddElement(Product x){
+    Spisok.push_back(x);
+}
+string ListReports::GetName(){
+    return this->Name;
+}
+void ListReports::Control(){
+    SelectedElement = Spisok.begin();
+    bool conec = true;
+    while (conec) {
+        system("cls");
+        ListReports::shou();
+        ListReports::shoulist();
+
+
+        switch (_getch()){
+            case 80: //V
+                    if (SelectedElement  != Spisok.end())
+                    {
+                        SelectedElement++;
+                    }
+                    if (SelectedElement  == Spisok.end())
+                    {
+                        SelectedElement--;
+                    }
+                    break;
+                    case 72: // ^
+                    if (SelectedElement != Spisok.begin())
+                    {
+                        SelectedElement--;
+                    }
+            case 'd':
+
+                    break;
+            case 'a':{
+                    Product* NowyRabochiy = new Product;
+                    Product* TestWorker = ListReports::Check(NowyRabochiy->GetName());
+                    if (TestWorker == nullptr){
+                        ListReports::AddElement(*NowyRabochiy);
+                    }else{
+                        cout << "that user already exist";
+                        _getch();
+                    }
+
+                    break;}
+            case 27: // esc
+                conec = false;
+                break;
+            default:{}
+            }
+    }
+}
+Product* ListReports::Check(string N){
+    list<Product>::iterator ItrToFind;
+    ItrToFind = Spisok.begin();
+    for (ItrToFind = Spisok.begin(); ItrToFind != Spisok.end(); ++ItrToFind)
+        if (ItrToFind->GetName() == N){
+            return ItrToFind->GetPointr();
+        };
+    return nullptr;
+}
