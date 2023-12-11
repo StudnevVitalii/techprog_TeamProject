@@ -91,6 +91,11 @@ Ingredient* Ingredient::GetPointr(){
     return this;
     }
 
+IngredientForRecepi::IngredientForRecepi():Ingredient(){}
+
+IngredientForRecepi::IngredientForRecepi(string n,int v,string e):Ingredient(n,v,e){}
+
+IngredientForRecepi::IngredientForRecepi(ifstream *file):Ingredient(file){}
 
 
 

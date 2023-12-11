@@ -75,6 +75,15 @@ public:
    Ingredient* GetPointr();
 
 };
+class IngredientForRecepi : public Ingredient{
+public:
+   IngredientForRecepi();
+
+   IngredientForRecepi(string,int,string);
+
+   IngredientForRecepi(ifstream *file);
+};
+
 
 #endif // ELEMENTS
 
