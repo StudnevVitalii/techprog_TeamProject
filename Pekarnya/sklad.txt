@@ -1,0 +1,4 @@
+Sklad 3
+solt 1000 gr
+muka 1234 gr
+voda 123 ml

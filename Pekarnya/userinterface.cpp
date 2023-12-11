@@ -1,5 +1,7 @@
 #include "userinterface.h"
 
+using namespace std;
+
 UserInterface::UserInterface()
 {
 
@@ -51,6 +53,32 @@ void UserInterface::Login(){
 }
 
 void UserInterface::Admin(){
+    ifstream fileW;
+    fileW.open("D:/Team_project_ver2.0/Pekarnya/listofworkers.txt", ios_base::in);
+    ListWorkers WorkerList(&fileW);
+
+    ifstream fileS;
+    fileS.open("D:/Team_project_ver2.0/Pekarnya/sklad.txt", ios_base::in);
+    ListIngredients Sklad(&fileS);
+
+    bool conec = true;
+    while (conec) {
+        system("cls");
+        cout << "W - workers " << endl;
+        cout << "S - sklad " << endl;
+        switch (_getch()){
+            case 'w':
+                    WorkerList.Control();
+                    break;
+            case 's':
+                    Sklad.Control();
+                    break;
+            case 27: // esc
+                conec = false;
+                break;
+            default:{}
+            }
+    }
 
 }
 
