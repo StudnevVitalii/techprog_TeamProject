@@ -67,6 +67,7 @@ public:
     void AddElement(IngredientForRecepi);
     void Control();
     IngredientForRecepi* Check(string N);
+    ListIngredientForRecepi* GetPointr();
 };
 
 class ListReports {
@@ -85,6 +86,24 @@ public:
     void AddElement(Product);
     void Control();
     Product* Check(string N);
+
+};
+class ListRecepi {
+private:
+    list<ListIngredientForRecepi> Spisok;
+    list<ListIngredientForRecepi>::iterator SelectedElement;
+    string Name;
+
+public:
+    ListRecepi();
+    ListRecepi(string N);
+    ListRecepi(ifstream *file);
+    void shou();
+    string GetName();
+    void shoulist();
+    void AddElement(ListIngredientForRecepi);
+    void Control();
+    ListIngredientForRecepi* Check(string N);
 
 };
 #endif // LISTS_H
