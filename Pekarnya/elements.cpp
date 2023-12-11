@@ -51,27 +51,27 @@ Worker* Worker::GetPointr(){
 
 
 
-Ingridient::Ingridient()
+Ingredient::Ingredient()
     {
 
 
     }
-Ingridient::Ingridient(string n,int v,string e)
+Ingredient::Ingredient(string n,int v,string e)
    {
        Name = n;
        Value = v;
        ED = e;
    }
 
-string Ingridient::GetName()
+string Ingredient::GetName()
    {
        return Name;
    }
-int Ingridient::GetValue()
+int Ingredient::GetValue()
    {
        return Value;
    }
-void Ingridient::shou()
+void Ingredient::shou()
    {
        cout << Name << "   " << Value << "   " << ED << "   "  ;
    }

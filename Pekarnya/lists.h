@@ -30,4 +30,22 @@ public:
     void Control();
     Worker* Check(string N);
 };
+
+class ListIngredients {
+private:
+    list<Ingredient> Spisok;
+    list<Ingredient>::iterator SelectedElement;
+    string Name;
+
+public:
+    ListIngredients();
+    ListIngredients(string N);
+    ListIngredients(ifstream *file);
+    void shou();
+    string GetName();
+    void shoulist();
+    void AddElement(Ingridient);
+    void Control();
+    Ingredient* Check(string N);
+};
 #endif // LISTS_H

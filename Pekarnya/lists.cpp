@@ -112,3 +112,34 @@ Worker* ListWorkers::Check(string N){
 }
 
 
+
+
+
+ListIngredients::ListIngredients(){
+
+}
+ListIngredients::ListIngredients(string N){
+
+}
+ListIngredients::ListIngredients(ifstream *file)
+{
+
+}
+void ListIngredients::shou(){
+
+}
+void ListIngredients::shoulist(){
+
+}
+void ListIngredients::AddElement(Worker x){
+
+}
+string ListIngredients::GetName(){
+
+}
+void ListIngredients::Control(){
+
+}
+Ingredient* ListIngredients::Check(string N){
+
+}
