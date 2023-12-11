@@ -62,7 +62,6 @@ Ingredient::Ingredient(string n,int v,string e)
        Value = v;
        ED = e;
    }
-
 Ingredient::Ingredient(ifstream *file)
 {
     string N;
@@ -76,7 +75,6 @@ Ingredient::Ingredient(ifstream *file)
     Value = stoi(temp_V);
     this->ED = ED;
 }
-
 string Ingredient::GetName()
    {
        return Name;
@@ -89,7 +87,6 @@ void Ingredient::shou()
    {
        cout << Name << "   " << Value << "   " << ED << "   "  ;
    }
-
 Ingredient* Ingredient::GetPointr(){
     return this;
     }

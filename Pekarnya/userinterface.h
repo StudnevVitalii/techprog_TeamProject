@@ -11,6 +11,9 @@ class UserInterface
 public:
     UserInterface();
     void Login();
+    void Admin();
+    void Pekar();
+    void Sklader();
 };
 
 #endif // USERINTERFACE_H

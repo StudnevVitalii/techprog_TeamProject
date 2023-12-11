@@ -13,6 +13,7 @@ void UserInterface::Login(){
 
 
 
+
     string login;
     string password;
     bool exit = false;
@@ -29,15 +30,15 @@ void UserInterface::Login(){
             if(buff->GetPassword() == password){
                 switch (buff->GetRoot()[0]) {
                 case 'a':
-                    WorkerList.Control();
+                    UserInterface::Admin();
                     exit = true;
                     break;
                 case 'p':
-                    cout << "pekar";
+                    UserInterface::Pekar();
                     exit = true;
                     break;
                 case 'w':
-                    cout << "worker";
+                    UserInterface::Sklader();
                     exit = true;
                     break;
                 }
@@ -47,4 +48,16 @@ void UserInterface::Login(){
             }
         }
     }while(!exit);
+}
+
+void UserInterface::Admin(){
+
+}
+
+void UserInterface::Pekar(){
+
+}
+
+void UserInterface::Sklader(){
+
 }
