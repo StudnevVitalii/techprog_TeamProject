@@ -6,6 +6,7 @@ object_script.*.Debug
 *.qbs.user
 *.qbs.user.*
 *user*
+*user
 *.moc
 moc_*.cpp
 moc_*.h
