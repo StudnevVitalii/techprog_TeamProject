@@ -53,22 +53,26 @@ public:
 
 };
 
-class Ingridient {
+class Ingredient {
 
 private:
     string Name;
     int Value;
     string ED;
 public:
-   Ingridient();
+   Ingredient();
 
-   Ingridient(string,int,string);
+   Ingredient(string,int,string);
+
+   Ingredient(ifstream *file);
 
    string GetName();
 
    int GetValue();
 
    void shou();
+
+   Ingredient* GetPointr();
 
 };
 
