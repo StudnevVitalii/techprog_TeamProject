@@ -70,22 +70,23 @@ public:
     ListIngredientForRecepi* GetPointr();
 };
 
-class ListReports {
+class ListProducts {
 private:
     list<Product> Spisok;
     list<Product>::iterator SelectedElement;
     string Name;
 
 public:
-    ListReports();
-    ListReports(string N);
-    ListReports(ifstream *file);
+    ListProducts();
+    ListProducts(string N);
+    ListProducts(ifstream *file);
     void shou();
     string GetName();
     void shoulist();
     void AddElement(Product);
     void Control();
     Product* Check(string N);
+    ListProducts* GetPointr();
 
 };
 class ListRecepi {
@@ -104,6 +105,24 @@ public:
     void AddElement(ListIngredientForRecepi);
     void Control();
     ListIngredientForRecepi* Check(string N);
+
+};
+class ListReports {
+private:
+    list<ListProducts> Spisok;
+    list<ListProducts>::iterator SelectedElement;
+    string Name;
+
+public:
+    ListReports();
+    ListReports(string N);
+    ListReports(ifstream *file);
+    void shou();
+    string GetName();
+    void shoulist();
+    void AddElement(ListProducts);
+    void Control();
+    ListProducts* Check(string N);
 
 };
 #endif // LISTS_H
