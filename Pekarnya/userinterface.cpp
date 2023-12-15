@@ -10,7 +10,7 @@ UserInterface::UserInterface()
 void UserInterface::Login(){
 
     ifstream file;
-    file.open("D:/Team_project_ver2.0/Pekarnya/listofworkers.txt", ios_base::in);
+    file.open("D:/Isxodniki/teamProject/techprog_TeamProject/Pekarnya/listofworkers.txt", ios_base::in);
     ListWorkers WorkerList(&file);
 
 
@@ -54,11 +54,11 @@ void UserInterface::Login(){
 
 void UserInterface::Admin(){
     ifstream fileW;
-    fileW.open("D:/Team_project_ver2.0/Pekarnya/listofworkers.txt", ios_base::in);
+    fileW.open("D:/Isxodniki/teamProject/techprog_TeamProject/Pekarnya/listofworkers.txt", ios_base::in);
     ListWorkers WorkerList(&fileW);
 
     ifstream fileS;
-    fileS.open("D:/Team_project_ver2.0/Pekarnya/sklad.txt", ios_base::in);
+    fileS.open("D:/Isxodniki/teamProject/techprog_TeamProject/Pekarnya/sklad.txt", ios_base::in);
     ListIngredients Sklad(&fileS);
 
     bool conec = true;

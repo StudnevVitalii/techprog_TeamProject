@@ -2,7 +2,10 @@
 #define USERINTERFACE_H
 #include <fstream>
 #include <string>
-#include "lists.h"
+#include "listworkers.h"
+#include "listingredients.h"
+#include "listrecepi.h"
+#include "listreports.h"
 
 using namespace std;
 
