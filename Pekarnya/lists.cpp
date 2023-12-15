@@ -310,13 +310,13 @@ ListIngredientForRecepi* ListIngredientForRecepi::GetPointr(){
     return this;
 }
 
-ListReports::ListReports(){
+ListProducts::ListProducts(){
 
 }
-ListReports::ListReports(string N){
+ListProducts::ListProducts(string N){
     Name = N;
 }
-ListReports::ListReports(ifstream *file)
+ListProducts::ListProducts(ifstream *file)
 {
     string N;
     string last;
@@ -327,14 +327,14 @@ ListReports::ListReports(ifstream *file)
     while ((file->eof() != true) && (count <= stoi(last)))
     {
        Product* NowyRabochiy = new Product(file);
-       ListReports::AddElement(*NowyRabochiy);
+       ListProducts::AddElement(*NowyRabochiy);
        count++;
     }
 }
-void ListReports::shou(){
+void ListProducts::shou(){
     cout << Name;
 }
-void ListReports::shoulist(){
+void ListProducts::shoulist(){
     cout << endl;
     list<Product>::iterator ItrForShouing;
     ItrForShouing = Spisok.begin();
@@ -346,19 +346,19 @@ void ListReports::shoulist(){
         cout << endl;
     }
 }
-void ListReports::AddElement(Product x){
+void ListProducts::AddElement(Product x){
     Spisok.push_back(x);
 }
-string ListReports::GetName(){
+string ListProducts::GetName(){
     return this->Name;
 }
-void ListReports::Control(){
+void ListProducts::Control(){
     SelectedElement = Spisok.begin();
     bool conec = true;
     while (conec) {
         system("cls");
-        ListReports::shou();
-        ListReports::shoulist();
+        ListProducts::shou();
+        ListProducts::shoulist();
 
 
         switch (_getch()){
@@ -386,9 +386,9 @@ void ListReports::Control(){
                     string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
                     if(this->Name == today){
                         Product* NowyRabochiy = new Product;
-                        Product* TestWorker = ListReports::Check(NowyRabochiy->GetName());
+                        Product* TestWorker = ListProducts::Check(NowyRabochiy->GetName());
                         if (TestWorker == nullptr){
-                            ListReports::AddElement(*NowyRabochiy);
+                            ListProducts::AddElement(*NowyRabochiy);
                         }
                     }
                     else{
@@ -403,7 +403,7 @@ void ListReports::Control(){
             }
     }
 }
-Product* ListReports::Check(string N){
+Product* ListProducts::Check(string N){
     list<Product>::iterator ItrToFind;
     ItrToFind = Spisok.begin();
     for (ItrToFind = Spisok.begin(); ItrToFind != Spisok.end(); ++ItrToFind)
@@ -412,6 +412,10 @@ Product* ListReports::Check(string N){
         };
     return nullptr;
 }
+ListProducts* ListProducts::GetPointr(){
+    return this;
+}
+
 
 ListRecepi::ListRecepi(){
 
@@ -515,3 +519,108 @@ ListIngredientForRecepi* ListRecepi::Check(string N){
         };
     return nullptr;
 }
+
+ListReports::ListReports(){
+
+}
+ListReports::ListReports(string N){
+    Name = N;
+}
+ListReports::ListReports(ifstream *file)
+{
+    string N;
+    string last;
+    getline(*file, N, ' ');
+    Name = N;
+    getline(*file, last);
+    int count = 1;
+    while ((file->eof() != true) && (count <= stoi(last)))
+    {
+       ListProducts* NowyRabochiy = new ListProducts(file);
+       ListReports::AddElement(*NowyRabochiy);
+       count++;
+    }
+}
+void ListReports::shou(){
+    cout << Name;
+}
+void ListReports::shoulist(){
+    cout << endl;
+    list<ListProducts>::iterator ItrForShouing;
+    ItrForShouing = Spisok.begin();
+    for (ItrForShouing = Spisok.begin(); ItrForShouing != Spisok.end(); ++ItrForShouing){
+        ItrForShouing->shou();
+        if (ItrForShouing == SelectedElement){
+            cout << " <---";
+        }
+        cout << endl;
+    }
+}
+void ListReports::AddElement(ListProducts x){
+    Spisok.push_back(x);
+}
+string ListReports::GetName(){
+    return this->Name;
+}
+void ListReports::Control(){
+    SelectedElement = Spisok.begin();
+    bool conec = true;
+    while (conec) {
+        system("cls");
+        ListReports::shou();
+        ListReports::shoulist();
+
+
+        switch (_getch()){
+            case 80: //V
+                    if (SelectedElement  != Spisok.end())
+                    {
+                        SelectedElement++;
+                    }
+                    if (SelectedElement  == Spisok.end())
+                    {
+                        SelectedElement--;
+                    }
+                    break;
+                    case 72: // ^
+                    if (SelectedElement != Spisok.begin())
+                    {
+                        SelectedElement--;
+                    }
+            case 'd':
+
+                    break;
+            case 'a':{
+                    time_t t = time(nullptr);
+                    tm* now = localtime(&t);
+                    string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
+                    if(this->Name == today){
+                        ListProducts* NowyRabochiy = new ListProducts;
+                        ListProducts* TestWorker = ListReports::Check(NowyRabochiy->GetName());
+                        if (TestWorker == nullptr){
+                            ListReports::AddElement(*NowyRabochiy);
+                        }
+                    }
+                    else{
+                        cout << "Mozhno izmenyat tolko za tekushchij den!";
+                    }
+
+                    break;}
+            case 27: // esc
+                conec = false;
+                break;
+            default:{}
+            }
+    }
+}
+ListProducts* ListReports::Check(string N){
+    list<ListProducts>::iterator ItrToFind;
+    ItrToFind = Spisok.begin();
+    for (ItrToFind = Spisok.begin(); ItrToFind != Spisok.end(); ++ItrToFind)
+        if (ItrToFind->GetName() == N){
+            return ItrToFind->GetPointr();
+        };
+    return nullptr;
+}
+
+
