@@ -29,6 +29,7 @@ public:
     void AddElement(Worker);
     void Control();
     Worker* Check(string N);
+    void Save();
 };
 
 #endif // LISTWORKERS_H
