@@ -9,7 +9,7 @@ using namespace std;
 
 class Ingredient {
 
-private:
+protected:
     string Name;
     int Value;
     string ED;
