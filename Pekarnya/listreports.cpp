@@ -62,30 +62,14 @@ void ListReports::Control(){
                         SelectedElement--;
                     }
                     break;
-                    case 72: // ^
+             case 72: // ^
                     if (SelectedElement != Spisok.begin())
                     {
                         SelectedElement--;
                     }
-            case 'd':
-
+            case 13:
+                    SelectedElement->Control();
                     break;
-            case 'a':{
-                    time_t t = time(nullptr);
-                    tm* now = localtime(&t);
-                    string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
-                    if(this->Name == today){
-                        ListProducts* NewListProducts = new ListProducts;
-                        ListProducts* TestListProducts = ListReports::Check(NewListProducts->GetName());
-                        if (TestListProducts == nullptr){
-                            ListReports::AddElement(*NewListProducts);
-                        }
-                    }
-                    else{
-                        cout << "Mozhno izmenyat tolko za tekushchij den!";
-                    }
-
-                    break;}
             case 27: // esc
                 conec = false;
                 break;

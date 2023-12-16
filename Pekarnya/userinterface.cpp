@@ -66,14 +66,29 @@ void UserInterface::Admin(){
     ListRecepi ListOfRecepi(&fileR);
 
     ifstream fileP;
-    fileS.open("D:/WorkFiles/listofproducts.txt", ios_base::in);
-    ListReports ListOfProducts(&fileP);
+    fileP.open("D:/WorkFiles/listofproducts.txt", ios_base::in);
+    ListReports ListOfReports(&fileP);
+
+    time_t t = time(nullptr);
+    tm* now = localtime(&t);
+    string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
+    if (ListOfReports.Check(today) == nullptr)
+    {
+        ListProducts* NewListProducts = new ListProducts(today);
+        ListOfReports.AddElement(*NewListProducts);
+    }
+
+
+
+
 
     bool conec = true;
     while (conec) {
         system("cls");
         cout << "W - workers " << endl;
         cout << "S - sklad " << endl;
+        cout << "R - recepi " << endl;
+        cout << "O - otchety " << endl;
         switch (_getch()){
             case 'w':
                     WorkerList.Control();
@@ -84,8 +99,8 @@ void UserInterface::Admin(){
             case 'r':
                     ListOfRecepi.Control();
                     break;
-            case 'p':
-                    ListOfProducts.Control();
+            case 'o':
+                    ListOfReports.Control();
                     break;
             case 27: // esc
                 conec = false;
