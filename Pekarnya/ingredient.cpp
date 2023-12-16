@@ -2,7 +2,17 @@
 
 Ingredient::Ingredient()
     {
-
+    string n, e;
+    int v;
+    cout << "Vvedite naimenovanie: " << endl;
+    cin >> n;
+    Name = n;
+    cout << "Vvedite kol-vo: " << endl;
+    cin >> v;
+    Value = v;
+    cout << "Vvedite edenicy izmereniya: " << endl;
+    cin >> e;
+    ED = e;
 
     }
 Ingredient::Ingredient(string n,int v,string e)
