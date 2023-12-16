@@ -73,7 +73,7 @@ void ListWorkers::Control(){
             case 'a':{
                     Worker* NewListWorkers = new Worker;
                     Worker* TestListWorkers = ListWorkers::Check(NewListWorkers->GetName());
-                    if (TestListWorkers == nullptr){
+                    if (TestListWorkers == nullptr && NewListWorkers->GetPassword() != "" && NewListWorkers->GetRoot() != ""){
                         ListWorkers::AddElement(*NewListWorkers);
                     }else{
                         cout << "that user already exist";

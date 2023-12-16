@@ -24,6 +24,8 @@ public:
 
    int GetValue();
 
+   string GetED();
+
    void SetValue(int);
 
    void shou();

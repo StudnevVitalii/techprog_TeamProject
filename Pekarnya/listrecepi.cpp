@@ -70,13 +70,13 @@ void ListRecepi::Control(){
             case 'd':
 
                     break;
-            case 'a':
+        case 'a':{
                     ListIngredientForRecepi* NewListRecepi = new ListIngredientForRecepi;
                     ListIngredientForRecepi* TestListRecepi = ListRecepi::Check(NewListRecepi->GetName());
                     if (TestListRecepi == nullptr){
                         ListRecepi::AddElement(*NewListRecepi);
                     }
-                    break;
+            break;}
             case 13:
                     (*SelectedElement).Control();
                     break;
