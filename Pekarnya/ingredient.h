@@ -24,6 +24,8 @@ public:
 
    int GetValue();
 
+   void SetValue(int);
+
    void shou();
 
    Ingredient* GetPointr();

@@ -101,3 +101,7 @@ ListIngredientForRecepi* ListIngredientForRecepi::GetPointr(){
     return this;
 }
 
+list<IngredientForRecepi> ListIngredientForRecepi::GetSpisok(){
+    return this->Spisok;
+}
+
