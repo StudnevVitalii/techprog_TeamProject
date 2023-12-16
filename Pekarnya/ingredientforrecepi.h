@@ -16,7 +16,7 @@ public:
 
    IngredientForRecepi(ifstream *file);
 
-   IngredientForRecepi* GetPointr();
+   IngredientForRecepi* GetPointr();   
 };
 
 #endif // INGREDIENTFORRECEPI_H
