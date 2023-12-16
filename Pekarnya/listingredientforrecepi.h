@@ -31,6 +31,7 @@ public:
     IngredientForRecepi* Check(string N);
     ListIngredientForRecepi* GetPointr();
     list<IngredientForRecepi> GetSpisok();
+    void Save(ofstream*);
 };
 
 #endif // LISTINGREDIENTFORRECEPI_H

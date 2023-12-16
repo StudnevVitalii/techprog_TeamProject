@@ -96,3 +96,25 @@ ListIngredientForRecepi* ListRecepi::Check(string N){
         };
     return nullptr;
 }
+
+
+void ListRecepi::Save(){
+    ofstream file_w("D:/WorkFiles/listofrecepi.txt", ios_base::out | ios_base::trunc);
+    file_w << Name + ' ';
+    if(Spisok.size() == 0){
+        file_w << Spisok.size();
+    }
+    else{
+        file_w << Spisok.size() << endl;
+    }
+    for(SelectedElement = Spisok.begin(); SelectedElement != Spisok.end(); ++SelectedElement){
+        if(SelectedElement == Spisok.begin()){
+            (*SelectedElement).Save(&file_w);
+        }
+        else{
+            file_w.operator <<(endl);
+            (*SelectedElement).Save(&file_w);
+        }
+    }
+    file_w.close();
+}
