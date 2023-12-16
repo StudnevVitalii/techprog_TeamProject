@@ -16,8 +16,8 @@ ListWorkers::ListWorkers(ifstream *file)
     int count = 1;
     while ((file->eof() != true) && (count <= stoi(last)))
     {
-       Worker* NowyRabochiy = new Worker(file);
-       ListWorkers::AddElement(*NowyRabochiy);
+       Worker* NewListWorkers = new Worker(file);
+       ListWorkers::AddElement(*NewListWorkers);
        count++;
     }
 }
@@ -71,10 +71,10 @@ void ListWorkers::Control(){
 
                     break;
             case 'a':{
-                    Worker* NowyRabochiy = new Worker;
-                    Worker* TestWorker = ListWorkers::Check(NowyRabochiy->GetName());
-                    if (TestWorker == nullptr){
-                        ListWorkers::AddElement(*NowyRabochiy);
+                    Worker* NewListWorkers = new Worker;
+                    Worker* TestListWorkers = ListWorkers::Check(NewListWorkers->GetName());
+                    if (TestListWorkers == nullptr){
+                        ListWorkers::AddElement(*NewListWorkers);
                     }else{
                         cout << "that user already exist";
                         _getch();

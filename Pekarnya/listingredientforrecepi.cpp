@@ -16,8 +16,8 @@ ListIngredientForRecepi::ListIngredientForRecepi(ifstream *file)
     int count = 1;
     while ((file->eof() != true) && (count <= stoi(last)))
     {
-       IngredientForRecepi* NowyIngredient = new IngredientForRecepi(file);
-       ListIngredientForRecepi::AddElement(*NowyIngredient);
+       IngredientForRecepi* NewIngredientForRecepi = new IngredientForRecepi(file);
+       ListIngredientForRecepi::AddElement(*NewIngredientForRecepi);
        count++;
     }
 }
@@ -71,10 +71,10 @@ void ListIngredientForRecepi::Control(){
 
                     break;
             case 'a':{
-                    IngredientForRecepi* NowyRabochiy = new IngredientForRecepi;
-                    IngredientForRecepi* TestWorker = ListIngredientForRecepi::Check(NowyRabochiy->GetName());
-                    if (TestWorker == nullptr){
-                        ListIngredientForRecepi::AddElement(*NowyRabochiy);
+                    IngredientForRecepi* NewIngredientForRecepi = new IngredientForRecepi;
+                    IngredientForRecepi* TestIngredientForRecepi = ListIngredientForRecepi::Check(NewIngredientForRecepi->GetName());
+                    if (TestIngredientForRecepi == nullptr){
+                        ListIngredientForRecepi::AddElement(*NewIngredientForRecepi);
                     }else{
                         cout << "that user already exist";
                         _getch();

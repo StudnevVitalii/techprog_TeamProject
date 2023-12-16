@@ -16,8 +16,8 @@ ListRecepi::ListRecepi(ifstream *file)
     int count = 1;
     while ((file->eof() != true) && (count <= stoi(last)))
     {
-       ListIngredientForRecepi* NowyRabochiy = new ListIngredientForRecepi(file);
-       ListRecepi::AddElement(*NowyRabochiy);
+       ListIngredientForRecepi* NewListRecepi = new ListIngredientForRecepi(file);
+       ListRecepi::AddElement(*NewListRecepi);
        count++;
     }
 }
@@ -75,10 +75,10 @@ void ListRecepi::Control(){
                     tm* now = localtime(&t);
                     string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
                     if(this->Name == today){
-                        ListIngredientForRecepi* NowyRabochiy = new ListIngredientForRecepi;
-                        ListIngredientForRecepi* TestWorker = ListRecepi::Check(NowyRabochiy->GetName());
-                        if (TestWorker == nullptr){
-                            ListRecepi::AddElement(*NowyRabochiy);
+                        ListIngredientForRecepi* NewListRecepi = new ListIngredientForRecepi;
+                        ListIngredientForRecepi* TestListRecepi = ListRecepi::Check(NewListRecepi->GetName());
+                        if (TestListRecepi == nullptr){
+                            ListRecepi::AddElement(*NewListRecepi);
                         }
                     }
                     else{
