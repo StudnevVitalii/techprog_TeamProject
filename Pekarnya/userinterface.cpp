@@ -10,7 +10,7 @@ UserInterface::UserInterface()
 void UserInterface::Login(){
 
     ifstream file;
-    file.open("D:/Isxodniki/teamProject/techprog_TeamProject/Pekarnya/listofworkers.txt", ios_base::in);
+    file.open("D:/WorkFiles/listofworkers.txt", ios_base::in);
     ListWorkers WorkerList(&file);
 
 
@@ -54,12 +54,20 @@ void UserInterface::Login(){
 
 void UserInterface::Admin(){
     ifstream fileW;
-    fileW.open("D:/Isxodniki/teamProject/techprog_TeamProject/Pekarnya/listofworkers.txt", ios_base::in);
+    fileW.open("D:/WorkFiles/listofworkers.txt", ios_base::in);
     ListWorkers WorkerList(&fileW);
 
     ifstream fileS;
-    fileS.open("D:/Isxodniki/teamProject/techprog_TeamProject/Pekarnya/sklad.txt", ios_base::in);
+    fileS.open("D:/WorkFiles/sklad.txt", ios_base::in);
     ListIngredients Sklad(&fileS);
+
+    ifstream fileR;
+    fileR.open("D:/WorkFiles/listofrecepi.txt", ios_base::in);
+    ListRecepi ListOfRecepi(&fileR);
+
+    ifstream fileP;
+    fileS.open("D:/WorkFiles/listofproducts.txt", ios_base::in);
+    ListReports ListOfProducts(&fileP);
 
     bool conec = true;
     while (conec) {
@@ -72,6 +80,12 @@ void UserInterface::Admin(){
                     break;
             case 's':
                     Sklad.Control();
+                    break;
+            case 'r':
+                    ListOfRecepi.Control();
+                    break;
+            case 'p':
+                    ListOfProducts.Control();
                     break;
             case 27: // esc
                 conec = false;
