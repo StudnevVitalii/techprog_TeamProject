@@ -13,7 +13,7 @@ private:
 public:
     Controller(ListIngredients*,ListRecepi*,ListReports*);
     bool AddElemet(IngredientForRecepi*);
-    bool AddElemet(Product*);
+    bool AddElemet(Product*, int);
 
 };
 

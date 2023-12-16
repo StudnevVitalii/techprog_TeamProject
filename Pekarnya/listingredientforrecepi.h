@@ -30,6 +30,7 @@ public:
     void Control();
     IngredientForRecepi* Check(string N);
     ListIngredientForRecepi* GetPointr();
+    list<IngredientForRecepi> GetSpisok();
 };
 
 #endif // LISTINGREDIENTFORRECEPI_H

@@ -32,6 +32,10 @@ int Ingredient::GetValue()
    {
        return Value;
    }
+void Ingredient::SetValue(int Value){
+    this->Value = Value;
+}
+
 void Ingredient::shou()
    {
        cout << Name << "   " << Value << "   " << ED << "   "  ;
