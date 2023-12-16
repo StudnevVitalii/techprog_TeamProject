@@ -16,8 +16,8 @@ ListProducts::ListProducts(ifstream *file)
     int count = 1;
     while ((file->eof() != true) && (count <= stoi(last)))
     {
-       Product* NowyRabochiy = new Product(file);
-       ListProducts::AddElement(*NowyRabochiy);
+       Product* NewListProducts = new Product(file);
+       ListProducts::AddElement(*NewListProducts);
        count++;
     }
 }
@@ -75,10 +75,10 @@ void ListProducts::Control(){
                     tm* now = localtime(&t);
                     string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
                     if(this->Name == today){
-                        Product* NowyRabochiy = new Product;
-                        Product* TestWorker = ListProducts::Check(NowyRabochiy->GetName());
-                        if (TestWorker == nullptr){
-                            ListProducts::AddElement(*NowyRabochiy);
+                        Product* NewListProducts = new Product;
+                        Product* TestListProducts = ListProducts::Check(NewListProducts->GetName());
+                        if (TestListProducts == nullptr){
+                            ListProducts::AddElement(*NewListProducts);
                         }
                     }
                     else{

@@ -16,8 +16,8 @@ ListReports::ListReports(ifstream *file)
     int count = 1;
     while ((file->eof() != true) && (count <= stoi(last)))
     {
-       ListProducts* NowyRabochiy = new ListProducts(file);
-       ListReports::AddElement(*NowyRabochiy);
+       ListProducts* NewListProducts = new ListProducts(file);
+       ListReports::AddElement(*NewListProducts);
        count++;
     }
 }
@@ -75,10 +75,10 @@ void ListReports::Control(){
                     tm* now = localtime(&t);
                     string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
                     if(this->Name == today){
-                        ListProducts* NowyRabochiy = new ListProducts;
-                        ListProducts* TestWorker = ListReports::Check(NowyRabochiy->GetName());
-                        if (TestWorker == nullptr){
-                            ListReports::AddElement(*NowyRabochiy);
+                        ListProducts* NewListProducts = new ListProducts;
+                        ListProducts* TestListProducts = ListReports::Check(NewListProducts->GetName());
+                        if (TestListProducts == nullptr){
+                            ListReports::AddElement(*NewListProducts);
                         }
                     }
                     else{

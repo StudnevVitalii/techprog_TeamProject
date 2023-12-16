@@ -16,8 +16,8 @@ ListIngredients::ListIngredients(ifstream *file)
     int count = 1;
     while ((file->eof() != true) && (count <= stoi(last)))
     {
-       Ingredient* NowyIngredient = new Ingredient(file);
-       ListIngredients::AddElement(*NowyIngredient);
+       Ingredient* NewListIngredients = new Ingredient(file);
+       ListIngredients::AddElement(*NewListIngredients);
        count++;
     }
 }
@@ -71,10 +71,10 @@ void ListIngredients::Control(){
 
                     break;
             case 'a':{
-                    Ingredient* NowyRabochiy = new Ingredient;
-                    Ingredient* TestWorker = ListIngredients::Check(NowyRabochiy->GetName());
-                    if (TestWorker == nullptr){
-                        ListIngredients::AddElement(*NowyRabochiy);
+                    Ingredient* NewListIngredients = new Ingredient;
+                    Ingredient* TestListIngredients = ListIngredients::Check(NewListIngredients->GetName());
+                    if (TestListIngredients == nullptr){
+                        ListIngredients::AddElement(*NewListIngredients);
                     }else{
                         cout << "that user already exist";
                         _getch();
