@@ -1,7 +1,8 @@
 #include "listingredientforrecepi.h"
 
 ListIngredientForRecepi::ListIngredientForRecepi(){
-
+    cout << "Vvedite imya:";
+    cin >> Name;
 }
 ListIngredientForRecepi::ListIngredientForRecepi(string N){
     Name = N;
