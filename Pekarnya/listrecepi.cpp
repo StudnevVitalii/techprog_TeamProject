@@ -70,22 +70,16 @@ void ListRecepi::Control(){
             case 'd':
 
                     break;
-            case 'a':{
-                    time_t t = time(nullptr);
-                    tm* now = localtime(&t);
-                    string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
-                    if(this->Name == today){
-                        ListIngredientForRecepi* NewListRecepi = new ListIngredientForRecepi;
-                        ListIngredientForRecepi* TestListRecepi = ListRecepi::Check(NewListRecepi->GetName());
-                        if (TestListRecepi == nullptr){
-                            ListRecepi::AddElement(*NewListRecepi);
-                        }
+            case 'a':
+                    ListIngredientForRecepi* NewListRecepi = new ListIngredientForRecepi;
+                    ListIngredientForRecepi* TestListRecepi = ListRecepi::Check(NewListRecepi->GetName());
+                    if (TestListRecepi == nullptr){
+                        ListRecepi::AddElement(*NewListRecepi);
                     }
-                    else{
-                        cout << "Mozhno izmenyat tolko za tekushchij den!";
-                    }
-
-                    break;}
+                    break;
+            case 13:
+                    (*SelectedElement).Control();
+                    break;
             case 27: // esc
                 conec = false;
                 break;
