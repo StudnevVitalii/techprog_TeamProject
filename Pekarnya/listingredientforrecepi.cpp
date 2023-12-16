@@ -74,7 +74,7 @@ void ListIngredientForRecepi::Control(){
             case 'a':{
                     IngredientForRecepi* NewIngredientForRecepi = new IngredientForRecepi;
                     IngredientForRecepi* TestIngredientForRecepi = ListIngredientForRecepi::Check(NewIngredientForRecepi->GetName());
-                    if (TestIngredientForRecepi == nullptr){
+                    if (TestIngredientForRecepi == nullptr && NewIngredientForRecepi->GetValue() != -1 && NewIngredientForRecepi->GetED() != ""){
                         ListIngredientForRecepi::AddElement(*NewIngredientForRecepi);
                     }else{
                         cout << "that user already exist";

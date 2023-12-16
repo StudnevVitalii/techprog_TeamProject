@@ -77,7 +77,7 @@ void ListProducts::Control(){
                     if(this->Name == today){
                         Product* NewListProducts = new Product;
                         Product* TestListProducts = ListProducts::Check(NewListProducts->GetName());
-                        if (TestListProducts == nullptr){
+                        if (TestListProducts == nullptr && NewListProducts->GetValue() != -1){
                             ListProducts::AddElement(*NewListProducts);
                         }
                     }
