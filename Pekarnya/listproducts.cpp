@@ -106,3 +106,44 @@ ListProducts* ListProducts::GetPointr(){
     return this;
 }
 
+void ListProducts::Save(ofstream* file_w){
+    for(unsigned int i = 0; i < Name.size(); ++i){
+        file_w->put(Name[i]);
+    }
+    file_w->put(' ');
+    if(Spisok.size() == 0){
+        file_w->put('0');
+    }
+    else{
+        string str = to_string(Spisok.size());
+        for(unsigned int i = 0; i < str.size(); ++i){
+            file_w->put(str[i]);
+        }
+        file_w->operator <<(endl);
+    }
+    for(SelectedElement = Spisok.begin(); SelectedElement != Spisok.end(); ++SelectedElement){
+        if(SelectedElement == --Spisok.end()){
+            string str = (*SelectedElement).GetName();
+            for(unsigned int i = 0; i < str.size(); ++i){
+                file_w->put(str[i]);
+            }
+            file_w->put(' ');
+            string str1 = to_string((*SelectedElement).GetValue());
+            for(unsigned int i = 0; i < str1.size(); ++i){
+                file_w->put(str1[i]);
+            }
+        }
+        else{
+            string str = (*SelectedElement).GetName();
+            for(unsigned int i = 0; i < str.size(); ++i){
+                file_w->put(str[i]);
+            }
+            file_w->put(' ');
+            string str1 = to_string((*SelectedElement).GetValue());
+            for(unsigned int i = 0; i < str1.size(); ++i){
+                file_w->put(str1[i]);
+            }
+            file_w->operator <<(endl);
+        }
+    }
+}

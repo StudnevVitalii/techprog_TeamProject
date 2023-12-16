@@ -108,6 +108,7 @@ void UserInterface::Admin(){
             default:{}
             }
     }
+    ListOfReports.Save();
 }
 
 void UserInterface::Pekar(){
