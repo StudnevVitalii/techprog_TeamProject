@@ -67,6 +67,7 @@ void ListReports::Control(){
                     {
                         SelectedElement--;
                     }
+                    break;
             case 13:
                     SelectedElement->Control();
                     break;
