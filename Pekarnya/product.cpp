@@ -57,6 +57,11 @@ int Product::GetValue()
    {
        return Value;
    }
+
+void Product::IncValue(int value){
+    this->Value += value;
+}
+
 void Product::shou()
    {
        cout << Name << "   " << Value <<  "   "  ;

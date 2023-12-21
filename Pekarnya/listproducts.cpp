@@ -71,22 +71,32 @@ void ListProducts::Control(ListRecepi* ListOfRecepi,ListIngredients* sklad){
 
                     break;
             case 'a':{
-                    time_t t = time(nullptr);
-                    tm* now = localtime(&t);
-                    string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
-                    if(this->Name == today){
-                        Product* NewListProducts = new Product;
-                        Product* TestListProducts = ListProducts::Check(NewListProducts->GetName());
-                        if (TestListProducts == nullptr && NewListProducts->GetValue() != -1){
-                            ListProducts::AddElement(*NewListProducts);
-                        }
-                    }
-                    else{
-                        cout << "Mozhno izmenyat tolko za tekushchij den!";
-                    }
-                    // вставить проверку сюда
+                            time_t t = time(nullptr);
+                            tm* now = localtime(&t);
+                            string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
+                            if(this->Name == today){
+                                Product* NewListProducts = new Product;
+                                Product* TestListProducts = ListProducts::Check(NewListProducts->GetName());
+                                if (NewListProducts->GetValue() != -1 && Proverka(NewListProducts, ListOfRecepi, sklad)){
+                                    if(TestListProducts == nullptr){
+                                        ListProducts::AddElement(*NewListProducts);
+                                    }
+                                    else{
+                                        TestListProducts->IncValue(NewListProducts->GetValue());
+                                        delete NewListProducts;
+                                    }
+                                }
+                                else if(!Proverka(NewListProducts, ListOfRecepi, sklad)){
+                                    cout << "Nelzya dobavit produkt v otchet (ne hvataet ingredientov na sklade)" << endl;
+                                    system("pause");
+                                }
+                            }
+                            else{
+                                cout << "Mozhno izmenyat tolko za tekushchij den!";
+                                system("pause");
+                            }
 
-                    break;}
+                       break;}
             case 27: // esc
                 conec = false;
                 break;
@@ -146,5 +156,33 @@ void ListProducts::Save(ofstream* file_w){
             }
             file_w->operator <<(endl);
         }
+    }
+}
+
+bool ListProducts::Proverka(Product* ptr_product, ListRecepi* ptr_list_recepi, ListIngredients* ptr_list_ingredient){
+    ListIngredientForRecepi* recept = ptr_list_recepi->Check(ptr_product->GetName());
+    unsigned count = 0;
+    if(recept != nullptr){ //ввели правильный продукт(рецепт), такой есть в списке рецептов
+        list<IngredientForRecepi> Spisok = recept->GetSpisok();
+        list<IngredientForRecepi>::iterator SelectedElement;
+        for(SelectedElement = Spisok.begin(); SelectedElement != Spisok.end(); ++SelectedElement){
+            if(ptr_list_ingredient->Check((*SelectedElement).GetName()) != nullptr){ //есть ингредиент из рецепта на складе
+                if(ptr_list_ingredient->Check((*SelectedElement).GetName())->GetValue() >= (ptr_product->GetValue() * (*SelectedElement).GetValue())){//на складе достаточно ингредиентов для добавления готовой продукции
+                    ++count;
+                }
+            }
+        }
+        if(count == Spisok.size()){
+            for(SelectedElement = Spisok.begin(); SelectedElement != Spisok.end(); ++SelectedElement){
+                ptr_list_ingredient->Check((*SelectedElement).GetName())->SetValue(ptr_list_ingredient->Check((*SelectedElement).GetName())->GetValue() - ((ptr_product->GetValue() * (*SelectedElement).GetValue())));
+            }
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    else{
+        return false;
     }
 }
