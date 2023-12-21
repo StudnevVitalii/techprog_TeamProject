@@ -25,6 +25,8 @@ public:
 
    int GetValue();
 
+   void IncValue(int);
+
    void shou();
 
    Product* GetPointr();
