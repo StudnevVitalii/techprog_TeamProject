@@ -100,7 +100,7 @@ void UserInterface::Admin(){
                     ListOfRecepi.Control(&Sklad);
                     break;
             case 'o':
-                    ListOfReports.Control();
+                    ListOfReports.Control(&ListOfRecepi,&Sklad);
                     break;
             case 27: // esc
                 conec = false;

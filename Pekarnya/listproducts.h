@@ -10,6 +10,13 @@
 #include <fstream>
 #include <ctime>
 #include "product.h"
+#include "listingredients.h"
+#include "ingredient.h"
+#include "listrecepi.h"
+#include "listingredientforrecepi.h"
+#include "ingredientforrecepi.h"
+
+
 
 using namespace std;
 
@@ -27,10 +34,11 @@ public:
     string GetName();
     void shoulist();
     void AddElement(Product);
-    void Control();
+    void Control(ListRecepi*,ListIngredients*);
     Product* Check(string N);
     ListProducts* GetPointr();
     void Save(ofstream*);
+    bool Proverka(Product*,ListRecepi*,ListIngredients*);// реализовать
 
 };
 

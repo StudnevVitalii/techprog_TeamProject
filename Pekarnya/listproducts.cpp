@@ -42,7 +42,7 @@ void ListProducts::AddElement(Product x){
 string ListProducts::GetName(){
     return this->Name;
 }
-void ListProducts::Control(){
+void ListProducts::Control(ListRecepi* ListOfRecepi,ListIngredients* sklad){
     SelectedElement = Spisok.begin();
     bool conec = true;
     while (conec) {
@@ -84,6 +84,7 @@ void ListProducts::Control(){
                     else{
                         cout << "Mozhno izmenyat tolko za tekushchij den!";
                     }
+                    // вставить проверку сюда
 
                     break;}
             case 27: // esc

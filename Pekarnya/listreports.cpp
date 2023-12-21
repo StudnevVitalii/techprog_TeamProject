@@ -42,7 +42,7 @@ void ListReports::AddElement(ListProducts x){
 string ListReports::GetName(){
     return this->Name;
 }
-void ListReports::Control(){
+void ListReports::Control(ListRecepi* ListOfRecepi,ListIngredients* sklad){
     SelectedElement = Spisok.begin();
     bool conec = true;
     while (conec) {
@@ -69,7 +69,7 @@ void ListReports::Control(){
                     }
                     break;
             case 13:
-                    SelectedElement->Control();
+                    SelectedElement->Control(ListOfRecepi,sklad);
                     break;
             case 27: // esc
                 conec = false;
