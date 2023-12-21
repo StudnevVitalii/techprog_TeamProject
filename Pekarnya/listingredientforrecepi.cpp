@@ -74,14 +74,17 @@ void ListIngredientForRecepi::Control(ListIngredients* sklad){
             case 'a':{
                     IngredientForRecepi* NewIngredientForRecepi = new IngredientForRecepi;
                     IngredientForRecepi* TestIngredientForRecepi = ListIngredientForRecepi::Check(NewIngredientForRecepi->GetName());
-                    if (TestIngredientForRecepi == nullptr && NewIngredientForRecepi->GetValue() != -1 && NewIngredientForRecepi->GetED() != ""){
+                    if (TestIngredientForRecepi == nullptr && NewIngredientForRecepi->GetValue() != -1 && NewIngredientForRecepi->GetED() != "" && Proverka(NewIngredientForRecepi, sklad)){
                         ListIngredientForRecepi::AddElement(*NewIngredientForRecepi);
-                    }else{
+                    }
+                    else if(!Proverka(NewIngredientForRecepi, sklad)){
+                        cout << "nelzya dobavit ingredient v recept (net ingredienta na sklade)";
+                        _getch();
+                    }
+                    else{
                         cout << "that ingridient exist";
                         _getch();
                     }
-
-
                     break;}
             case 27: // esc
                 conec = false;
@@ -158,3 +161,37 @@ void ListIngredientForRecepi::Save(ofstream* file_w){
         }
     }
 }
+
+bool ListIngredientForRecepi::Proverka(IngredientForRecepi* ptr_ingredient_for_recepi, ListIngredients* ptr_list_ingredients){
+    if(ptr_list_ingredients->Check(ptr_ingredient_for_recepi->GetName()) == nullptr){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
