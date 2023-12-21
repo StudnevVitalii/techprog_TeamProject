@@ -10,6 +10,7 @@
 #include <fstream>
 #include <ctime>
 #include "listingredientforrecepi.h"
+#include "listingredients.h"
 
 using namespace std;
 
@@ -27,9 +28,10 @@ public:
     string GetName();
     void shoulist();
     void AddElement(ListIngredientForRecepi);
-    void Control();
+    void Control(ListIngredients*);
     ListIngredientForRecepi* Check(string N);
     void Save();
+    bool Proverka();
 
 };
 

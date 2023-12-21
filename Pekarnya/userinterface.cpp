@@ -97,7 +97,7 @@ void UserInterface::Admin(){
                     Sklad.Control();
                     break;
             case 'r':
-                    ListOfRecepi.Control();
+                    ListOfRecepi.Control(&Sklad);
                     break;
             case 'o':
                     ListOfReports.Control();

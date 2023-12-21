@@ -43,7 +43,7 @@ void ListIngredientForRecepi::AddElement(IngredientForRecepi x){
 string ListIngredientForRecepi::GetName(){
     return this->Name;
 }
-void ListIngredientForRecepi::Control(){
+void ListIngredientForRecepi::Control(ListIngredients* sklad){
     SelectedElement = Spisok.begin();
     bool conec = true;
     while (conec) {
@@ -77,9 +77,10 @@ void ListIngredientForRecepi::Control(){
                     if (TestIngredientForRecepi == nullptr && NewIngredientForRecepi->GetValue() != -1 && NewIngredientForRecepi->GetED() != ""){
                         ListIngredientForRecepi::AddElement(*NewIngredientForRecepi);
                     }else{
-                        cout << "that user already exist";
+                        cout << "that ingridient exist";
                         _getch();
                     }
+
 
                     break;}
             case 27: // esc

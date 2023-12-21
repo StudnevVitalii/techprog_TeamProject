@@ -42,7 +42,7 @@ void ListRecepi::AddElement(ListIngredientForRecepi x){
 string ListRecepi::GetName(){
     return this->Name;
 }
-void ListRecepi::Control(){
+void ListRecepi::Control(ListIngredients *sklad){
     SelectedElement = Spisok.begin();
     bool conec = true;
     while (conec) {
@@ -78,7 +78,7 @@ void ListRecepi::Control(){
                     }
             break;}
             case 13:
-                    (*SelectedElement).Control();
+                    (*SelectedElement).Control(sklad);
                     break;
             case 27: // esc
                 conec = false;
