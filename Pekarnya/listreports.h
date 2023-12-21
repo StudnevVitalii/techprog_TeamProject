@@ -29,6 +29,7 @@ public:
     void AddElement(ListProducts);
     void Control();
     ListProducts* Check(string N);
+    void Save();
 
 };
 

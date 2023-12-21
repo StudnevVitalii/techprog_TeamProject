@@ -73,7 +73,7 @@ void ListWorkers::Control(){
             case 'a':{
                     Worker* NewListWorkers = new Worker;
                     Worker* TestListWorkers = ListWorkers::Check(NewListWorkers->GetName());
-                    if (TestListWorkers == nullptr){
+                    if (TestListWorkers == nullptr && NewListWorkers->GetPassword() != "" && NewListWorkers->GetRoot() != ""){
                         ListWorkers::AddElement(*NewListWorkers);
                     }else{
                         cout << "that user already exist";
@@ -97,4 +97,46 @@ Worker* ListWorkers::Check(string N){
         };
     return nullptr;
 }
+void ListWorkers::Save(){
+    ofstream file_w("D:/WorkFiles/listofworkers.txt", ios_base::out | ios_base::trunc);
+    file_w << Name + ' ';
+    if(Spisok.size() == 0){
+        file_w << Spisok.size();
+    }
+    else{
+        file_w << Spisok.size() << endl;
+    }
+    for(SelectedElement = Spisok.begin(); SelectedElement != Spisok.end(); ++SelectedElement){
+        if(SelectedElement == --Spisok.end()){
+            file_w << (*SelectedElement).GetName() + ' ';
+            file_w << (*SelectedElement).GetPassword() + ' ';
+            file_w << (*SelectedElement).GetRoot();
+        }
+        else{
+            file_w << (*SelectedElement).GetName() + ' ';
+            file_w << (*SelectedElement).GetPassword() + ' ';
+            file_w << (*SelectedElement).GetRoot() << endl;
+        }
+    }
+    file_w.close();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

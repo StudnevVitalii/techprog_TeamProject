@@ -29,6 +29,7 @@ public:
     void AddElement(ListIngredientForRecepi);
     void Control();
     ListIngredientForRecepi* Check(string N);
+    void Save();
 
 };
 

@@ -30,6 +30,7 @@ public:
     void Control();
     Product* Check(string N);
     ListProducts* GetPointr();
+    void Save(ofstream*);
 
 };
 

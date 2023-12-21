@@ -108,7 +108,6 @@ void UserInterface::Admin(){
             default:{}
             }
     }
-
 }
 
 void UserInterface::Pekar(){

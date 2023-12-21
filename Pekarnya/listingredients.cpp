@@ -73,7 +73,7 @@ void ListIngredients::Control(){
             case 'a':{
                     Ingredient* NewListIngredients = new Ingredient;
                     Ingredient* TestListIngredients = ListIngredients::Check(NewListIngredients->GetName());
-                    if (TestListIngredients == nullptr){
+                    if (TestListIngredients == nullptr && NewListIngredients->GetValue() != -1 && NewListIngredients->GetED() != ""){
                         ListIngredients::AddElement(*NewListIngredients);
                     }else{
                         cout << "that user already exist";
@@ -97,4 +97,28 @@ Ingredient* ListIngredients::Check(string N){
         };
     return nullptr;
 }
+
+ void ListIngredients::Save(){
+     ofstream file_w("D:/WorkFiles/sklad.txt", ios_base::out | ios_base::trunc);
+     file_w << Name + ' ';
+     if(Spisok.size() == 0){
+         file_w << Spisok.size();
+     }
+     else{
+         file_w << Spisok.size() << endl;
+     }
+     for(SelectedElement = Spisok.begin(); SelectedElement != Spisok.end(); ++SelectedElement){
+         if(SelectedElement == --Spisok.end()){
+             file_w << (*SelectedElement).GetName() + ' ';
+             file_w << to_string((*SelectedElement).GetValue()) + ' ';
+             file_w << (*SelectedElement).GetED();
+         }
+         else{
+             file_w << (*SelectedElement).GetName() + ' ';
+             file_w << to_string((*SelectedElement).GetValue()) + ' ';
+             file_w << (*SelectedElement).GetED() << endl;
+         }
+     }
+     file_w.close();
+ }
 

@@ -70,13 +70,13 @@ void ListRecepi::Control(){
             case 'd':
 
                     break;
-            case 'a':
+        case 'a':{
                     ListIngredientForRecepi* NewListRecepi = new ListIngredientForRecepi;
                     ListIngredientForRecepi* TestListRecepi = ListRecepi::Check(NewListRecepi->GetName());
                     if (TestListRecepi == nullptr){
                         ListRecepi::AddElement(*NewListRecepi);
                     }
-                    break;
+            break;}
             case 13:
                     (*SelectedElement).Control();
                     break;
@@ -95,4 +95,26 @@ ListIngredientForRecepi* ListRecepi::Check(string N){
             return ItrToFind->GetPointr();
         };
     return nullptr;
+}
+
+
+void ListRecepi::Save(){
+    ofstream file_w("D:/WorkFiles/listofrecepi.txt", ios_base::out | ios_base::trunc);
+    file_w << Name + ' ';
+    if(Spisok.size() == 0){
+        file_w << Spisok.size();
+    }
+    else{
+        file_w << Spisok.size() << endl;
+    }
+    for(SelectedElement = Spisok.begin(); SelectedElement != Spisok.end(); ++SelectedElement){
+        if(SelectedElement == Spisok.begin()){
+            (*SelectedElement).Save(&file_w);
+        }
+        else{
+            file_w.operator <<(endl);
+            (*SelectedElement).Save(&file_w);
+        }
+    }
+    file_w.close();
 }

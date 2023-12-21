@@ -29,6 +29,7 @@ public:
     void AddElement(Ingredient);
     void Control();
     Ingredient* Check(string N);
+    void Save();
 };
 
 #endif // LISTINGREDIENTS_H
