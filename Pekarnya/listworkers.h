@@ -1,5 +1,6 @@
-#ifndef LISTS_H
-#define LISTS_H
+#ifndef LISTWORKERS_H
+#define LISTWORKERS_H
+
 #include <iostream>
 #include <list>
 #include <string>
@@ -7,9 +8,8 @@
 #include <cstdlib>
 #include <windows.h>
 #include <fstream>
-
-
-#include "elements.h"
+#include <ctime>
+#include "worker.h"
 
 using namespace std;
 
@@ -21,13 +21,13 @@ private:
 
 public:
     ListWorkers();
-    ListWorkers(string N);
-    ListWorkers(ifstream *file);
+    ListWorkers(ifstream*);
     void shou();
-    string GetName();
     void shoulist();
     void AddElement(Worker);
     void Control();
-    Worker* Check(string N);
+    Worker* Check(string);
+    void Save();
 };
-#endif // LISTS_H
+
+#endif // LISTWORKERS_H

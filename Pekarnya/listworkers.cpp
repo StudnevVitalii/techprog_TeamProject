@@ -1,24 +1,9 @@
-#include "lists.h"
-
-#include <iostream>
-#include <list>
-#include <string>
-#include <conio.h>
-#include <cstdlib>
-#include <windows.h>
-#include <iostream>
-
-using namespace std;
-
-
-
+#include "listworkers.h"
 
 ListWorkers::ListWorkers(){
 
 }
-ListWorkers::ListWorkers(string N){
-    Name = N;
-}
+
 ListWorkers::ListWorkers(ifstream *file)
 {
     string N;
@@ -29,8 +14,9 @@ ListWorkers::ListWorkers(ifstream *file)
     int count = 1;
     while ((file->eof() != true) && (count <= stoi(last)))
     {
-       Worker* NowyRabochiy = new Worker(file);
-       ListWorkers::AddElement(*NowyRabochiy);
+       Worker* NewListWorkers = new Worker(file);
+       ListWorkers::AddElement(*NewListWorkers);
+       delete NewListWorkers;
        count++;
     }
 }
@@ -52,14 +38,16 @@ void ListWorkers::shoulist(){
 void ListWorkers::AddElement(Worker x){
     Spisok.push_back(x);
 }
-string ListWorkers::GetName(){
-    return this->Name;
-}
+
 void ListWorkers::Control(){
     SelectedElement = Spisok.begin();
     bool conec = true;
     while (conec) {
         system("cls");
+
+        cout << "d - delete worker " << endl;
+        cout << "a - add worker " << endl;
+
         ListWorkers::shou();
         ListWorkers::shoulist();
 
@@ -75,24 +63,28 @@ void ListWorkers::Control(){
                         SelectedElement--;
                     }
                     break;
-                    case 72: // ^
+            case 72: // ^
                     if (SelectedElement != Spisok.begin())
                     {
                         SelectedElement--;
                     }
+                    break;
             case 'd':
-
+                    if(!Spisok.empty() && SelectedElement->GetRoot() != "admin"){
+                        Spisok.erase(SelectedElement);
+                        SelectedElement = Spisok.begin();
+                    }
                     break;
             case 'a':{
-                    Worker* NowyRabochiy = new Worker;
-                    Worker* TestWorker = ListWorkers::Check(NowyRabochiy->GetName());
-                    if (TestWorker == nullptr){
-                        ListWorkers::AddElement(*NowyRabochiy);
+                    Worker* NewListWorkers = new Worker;
+                    Worker* TestListWorkers = ListWorkers::Check(NewListWorkers->GetName());
+                    if (TestListWorkers == nullptr && NewListWorkers->GetPassword() != "" && NewListWorkers->GetRoot() != ""){
+                        ListWorkers::AddElement(*NewListWorkers);
                     }else{
                         cout << "that user already exist";
                         _getch();
                     }
-
+                    delete NewListWorkers;
                     break;}
             case 27: // esc
                 conec = false;
@@ -110,5 +102,46 @@ Worker* ListWorkers::Check(string N){
         };
     return nullptr;
 }
+void ListWorkers::Save(){
+    ofstream file_w("D:/WorkFiles/listofworkers.txt", ios_base::out | ios_base::trunc);
+    file_w << Name + ' ';
+    if(Spisok.size() == 0){
+        file_w << Spisok.size();
+    }
+    else{
+        file_w << Spisok.size() << endl;
+    }
+    for(SelectedElement = Spisok.begin(); SelectedElement != Spisok.end(); ++SelectedElement){
+        if(SelectedElement == --Spisok.end()){
+            file_w << (*SelectedElement).GetName() + ' ';
+            file_w << (*SelectedElement).GetPassword() + ' ';
+            file_w << (*SelectedElement).GetRoot();
+        }
+        else{
+            file_w << (*SelectedElement).GetName() + ' ';
+            file_w << (*SelectedElement).GetPassword() + ' ';
+            file_w << (*SelectedElement).GetRoot() << endl;
+        }
+    }
+    file_w.close();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
