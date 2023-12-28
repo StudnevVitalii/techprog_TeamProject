@@ -28,7 +28,7 @@ public:
     string GetName();
     void shoulist();
     void AddElement(IngredientForRecepi);
-    void Control(ListIngredients*);
+    void Control(ListIngredients*, string);
     IngredientForRecepi* Check(string N);
     ListIngredientForRecepi* GetPointr();
     list<IngredientForRecepi> GetSpisok();

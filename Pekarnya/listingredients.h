@@ -27,7 +27,7 @@ public:
     string GetName();
     void shoulist();
     void AddElement(Ingredient);
-    void Control();
+    void Control(string);
     Ingredient* Check(string N);
     void Save();
 };
