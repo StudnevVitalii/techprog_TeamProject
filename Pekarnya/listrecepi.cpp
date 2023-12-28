@@ -42,7 +42,7 @@ void ListRecepi::AddElement(ListIngredientForRecepi x){
 string ListRecepi::GetName(){
     return this->Name;
 }
-void ListRecepi::Control(ListIngredients *sklad){
+void ListRecepi::Control(ListIngredients *sklad, string root){
     SelectedElement = Spisok.begin();
     bool conec = true;
     while (conec) {
@@ -69,7 +69,7 @@ void ListRecepi::Control(ListIngredients *sklad){
                     }
                     break;
             case 'd':
-                    if(!Spisok.empty()){
+                    if(!Spisok.empty() && root == "admin"){
                         Spisok.erase(SelectedElement);
                         SelectedElement = Spisok.begin();
                     }
@@ -82,7 +82,7 @@ void ListRecepi::Control(ListIngredients *sklad){
                     }
                     break;}
             case 13:
-                    (*SelectedElement).Control(sklad);
+                    (*SelectedElement).Control(sklad, root);
                     break;
             case 27: // esc
                 conec = false;

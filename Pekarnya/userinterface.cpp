@@ -81,7 +81,7 @@ void UserInterface::Admin(){
 
 
 
-
+    string root = "admin";
     bool conec = true;
     while (conec) {
         system("cls");
@@ -91,13 +91,13 @@ void UserInterface::Admin(){
         cout << "O - otchety " << endl;
         switch (_getch()){
             case 'w':
-                    WorkerList.Control();
+                    WorkerList.Control(root);
                     break;
             case 's':
-                    Sklad.Control();
+                    Sklad.Control(root);
                     break;
             case 'r':
-                    ListOfRecepi.Control(&Sklad);
+                    ListOfRecepi.Control(&Sklad, root);
                     break;
             case 'o':
                     ListOfReports.Control(&ListOfRecepi,&Sklad);

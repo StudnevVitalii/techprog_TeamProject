@@ -42,7 +42,7 @@ void ListWorkers::AddElement(Worker x){
 string ListWorkers::GetName(){
     return this->Name;
 }
-void ListWorkers::Control(){
+void ListWorkers::Control(string root){
     SelectedElement = Spisok.begin();
     bool conec = true;
     while (conec) {
@@ -69,7 +69,7 @@ void ListWorkers::Control(){
                     }
                     break;
             case 'd':
-                    if(!Spisok.empty() && SelectedElement->GetRoot() != "admin"){
+                    if(!Spisok.empty() && SelectedElement->GetRoot() != "admin" && root == "admin"){
                         Spisok.erase(SelectedElement);
                         SelectedElement = Spisok.begin();
                     }

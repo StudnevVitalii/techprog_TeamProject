@@ -27,7 +27,7 @@ public:
     string GetName();
     void shoulist();
     void AddElement(Worker);
-    void Control();
+    void Control(string);
     Worker* Check(string N);
     void Save();
 };

@@ -42,7 +42,7 @@ void ListIngredients::AddElement(Ingredient x){
 string ListIngredients::GetName(){
     return this->Name;
 }
-void ListIngredients::Control(){
+void ListIngredients::Control(string root){
     SelectedElement = Spisok.begin();
     bool conec = true;
     while (conec) {
@@ -69,7 +69,7 @@ void ListIngredients::Control(){
                     }
                     break;
             case 'd':
-                    if(!Spisok.empty()){
+                    if(!Spisok.empty() && root == "admin"){
                         Spisok.erase(SelectedElement);
                         SelectedElement = Spisok.begin();
                     }

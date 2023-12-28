@@ -28,7 +28,7 @@ public:
     string GetName();
     void shoulist();
     void AddElement(ListIngredientForRecepi);
-    void Control(ListIngredients*);
+    void Control(ListIngredients*, string);
     ListIngredientForRecepi* Check(string N);
     void Save();
     bool Proverka();
