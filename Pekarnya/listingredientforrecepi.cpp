@@ -51,6 +51,12 @@ void ListIngredientForRecepi::Control(ListIngredients* sklad, string root){
         system("cls");
 
 
+
+        if(root == "admin"){
+            cout << "d - delete ingredient " << endl;
+            cout << "a - add ingredient " << endl;
+        }
+
         ListIngredientForRecepi::shou();
         ListIngredientForRecepi::shoulist();
 
@@ -78,7 +84,7 @@ void ListIngredientForRecepi::Control(ListIngredients* sklad, string root){
                         SelectedElement = Spisok.begin();
                     }
                     break;
-            case 'a':{
+            case 'a':{if(root == "admin"){
                     IngredientForRecepi* NewIngredientForRecepi = new IngredientForRecepi(1);
                     IngredientForRecepi* TestIngredientForRecepi = ListIngredientForRecepi::Check(NewIngredientForRecepi->GetName());
                     if(NewIngredientForRecepi->GetValue() != -1 && Proverka(NewIngredientForRecepi, sklad)){
@@ -98,7 +104,7 @@ void ListIngredientForRecepi::Control(ListIngredients* sklad, string root){
                         cout << "neverno vvedeny dannye";
                         _getch();
                     }
-                    delete NewIngredientForRecepi;
+                    delete NewIngredientForRecepi;}
                     break;}
             case 27: // esc
                 conec = false;

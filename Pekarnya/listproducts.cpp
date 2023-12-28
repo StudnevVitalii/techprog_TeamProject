@@ -45,9 +45,17 @@ string ListProducts::GetName(){
 }
 void ListProducts::Control(ListRecepi* ListOfRecepi,ListIngredients* sklad){
     SelectedElement = Spisok.begin();
+    time_t t = time(nullptr);
+    tm* now = localtime(&t);
+    string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
     bool conec = true;
     while (conec) {
         system("cls");
+
+
+        if(this->Name == today){
+        cout << "a - add product " << endl;}
+
         ListProducts::shou();
         ListProducts::shoulist();
 
@@ -72,9 +80,6 @@ void ListProducts::Control(ListRecepi* ListOfRecepi,ListIngredients* sklad){
 
                     break;
             case 'a':{
-                            time_t t = time(nullptr);
-                            tm* now = localtime(&t);
-                            string today = to_string(now->tm_mday) + '.' + to_string((now->tm_mon + 1)) + '.' + to_string((now->tm_year + 1900));
                             if(this->Name == today){
                                 Product* NewListProducts = new Product;
                                 Product* TestListProducts = ListProducts::Check(NewListProducts->GetName());

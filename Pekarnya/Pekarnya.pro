@@ -5,7 +5,6 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    controller.cpp \
     userinterface.cpp \
     listreports.cpp \
     listworkers.cpp \
@@ -22,7 +21,6 @@ include(deployment.pri)
 qtcAddDeployment()
 
 HEADERS += \
-    controller.h \
     userinterface.h \
     listreports.h \
     listworkers.h \

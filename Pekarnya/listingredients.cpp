@@ -48,9 +48,20 @@ void ListIngredients::Control(string root){
     bool conec = true;
     while (conec) {
         system("cls");
+
+        if(root != "pekar"){
+            cout << "a - add ingredient " << endl;
+        }
+
+        if(root == "admin"){
+            cout << "d - delete ingredient " << endl;
+        }
+
+
+
+
         ListIngredients::shou();
         ListIngredients::shoulist();
-
 
         switch (_getch()){
             case 80: //V
@@ -75,7 +86,7 @@ void ListIngredients::Control(string root){
                         SelectedElement = Spisok.begin();
                     }
                     break;
-            case 'a':{
+            case 'a':{if(root != "pekar"){
                     Ingredient* NewListIngredients = new Ingredient;
                     Ingredient* TestListIngredients = ListIngredients::Check(NewListIngredients->GetName());
                     if(NewListIngredients->GetValue() != -1 && NewListIngredients->GetED() != ""){
@@ -90,7 +101,7 @@ void ListIngredients::Control(string root){
                             _getch();
                         }
                     }
-                    delete NewListIngredients;
+                    delete NewListIngredients;}
                     break;}
             case 27: // esc
                 conec = false;

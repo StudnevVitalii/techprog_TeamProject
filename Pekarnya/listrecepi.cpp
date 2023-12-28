@@ -48,6 +48,12 @@ void ListRecepi::Control(ListIngredients *sklad, string root){
     bool conec = true;
     while (conec) {
         system("cls");
+
+        if(root == "admin"){
+            cout << "d - delete recepi " << endl;
+            cout << "a - add recepi " << endl;
+        }
+
         ListRecepi::shou();
         ListRecepi::shoulist();
 
@@ -75,13 +81,13 @@ void ListRecepi::Control(ListIngredients *sklad, string root){
                         SelectedElement = Spisok.begin();
                     }
                     break;
-            case 'a':{
+            case 'a':{if(root == "admin"){
                     ListIngredientForRecepi* NewListRecepi = new ListIngredientForRecepi;
                     ListIngredientForRecepi* TestListRecepi = ListRecepi::Check(NewListRecepi->GetName());
                     if (TestListRecepi == nullptr){
                         ListRecepi::AddElement(*NewListRecepi);
                     }
-                    delete NewListRecepi;
+                    delete NewListRecepi;}
                     break;}
             case 13:
                     (*SelectedElement).Control(sklad, root);

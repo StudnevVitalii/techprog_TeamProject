@@ -150,7 +150,7 @@ void UserInterface::Pekar(){
 
 
 
-    string root = "admin";
+    string root = "pekar";
     bool conec = true;
     while (conec) {
         system("cls");

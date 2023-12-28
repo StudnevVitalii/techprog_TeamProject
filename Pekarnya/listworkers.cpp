@@ -48,6 +48,10 @@ void ListWorkers::Control(string root){
     bool conec = true;
     while (conec) {
         system("cls");
+
+        cout << "d - delete worker " << endl;
+        cout << "a - add worker " << endl;
+
         ListWorkers::shou();
         ListWorkers::shoulist();
 
