@@ -49,6 +49,8 @@ void ListIngredientForRecepi::Control(ListIngredients* sklad, string root){
     bool conec = true;
     while (conec) {
         system("cls");
+
+
         ListIngredientForRecepi::shou();
         ListIngredientForRecepi::shoulist();
 
