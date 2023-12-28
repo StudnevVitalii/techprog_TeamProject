@@ -81,16 +81,21 @@ void ListIngredientForRecepi::Control(ListIngredients* sklad, string root){
             case 'a':{
                     IngredientForRecepi* NewIngredientForRecepi = new IngredientForRecepi(1);
                     IngredientForRecepi* TestIngredientForRecepi = ListIngredientForRecepi::Check(NewIngredientForRecepi->GetName());
-                    if (TestIngredientForRecepi == nullptr && NewIngredientForRecepi->GetValue() != -1 && Proverka(NewIngredientForRecepi, sklad)){
-                        NewIngredientForRecepi->SetED((sklad->Check(NewIngredientForRecepi->GetName()))->GetED());
-                        ListIngredientForRecepi::AddElement(*NewIngredientForRecepi);
-                    }
-                    else if(!Proverka(NewIngredientForRecepi, sklad)){
-                        cout << "nelzya dobavit ingredient v recept (net ingredienta na sklade)";
-                        _getch();
+                    if(NewIngredientForRecepi->GetValue() != -1 && Proverka(NewIngredientForRecepi, sklad)){
+                        if (TestIngredientForRecepi == nullptr){
+                            NewIngredientForRecepi->SetED((sklad->Check(NewIngredientForRecepi->GetName()))->GetED());
+                            ListIngredientForRecepi::AddElement(*NewIngredientForRecepi);
+                        }
+                        else if(TestIngredientForRecepi != nullptr){
+                            TestIngredientForRecepi->SetValue(TestIngredientForRecepi->GetValue() + NewIngredientForRecepi->GetValue());
+                        }
+                        else if(!Proverka(NewIngredientForRecepi, sklad)){
+                            cout << "nelzya dobavit ingredient v recept (net ingredienta na sklade)";
+                            _getch();
+                        }
                     }
                     else{
-                        cout << "that ingridient exist";
+                        cout << "neverno vvedeny dannye";
                         _getch();
                     }
                     delete NewIngredientForRecepi;
