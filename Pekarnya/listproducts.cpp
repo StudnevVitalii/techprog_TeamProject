@@ -84,7 +84,6 @@ void ListProducts::Control(ListRecepi* ListOfRecepi,ListIngredients* sklad){
                                     }
                                     else{
                                         TestListProducts->IncValue(NewListProducts->GetValue());
-                                        delete NewListProducts;
                                     }
                                 }
                                 else if(!Proverka(NewListProducts, ListOfRecepi, sklad)){

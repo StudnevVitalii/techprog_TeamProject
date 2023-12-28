@@ -78,11 +78,17 @@ void ListIngredients::Control(string root){
             case 'a':{
                     Ingredient* NewListIngredients = new Ingredient;
                     Ingredient* TestListIngredients = ListIngredients::Check(NewListIngredients->GetName());
-                    if (TestListIngredients == nullptr && NewListIngredients->GetValue() != -1 && NewListIngredients->GetED() != ""){
-                        ListIngredients::AddElement(*NewListIngredients);
-                    }else{
-                        cout << "that user already exist";
-                        _getch();
+                    if(NewListIngredients->GetValue() != -1 && NewListIngredients->GetED() != ""){
+                        if (TestListIngredients == nullptr){
+                            ListIngredients::AddElement(*NewListIngredients);
+                        }
+                        else if(TestListIngredients != nullptr && NewListIngredients->GetED() == TestListIngredients->GetED()){
+                            TestListIngredients->SetValue(TestListIngredients->GetValue() + NewListIngredients->GetValue());
+                        }
+                        else{
+                            cout << "neverno vvedeny dannye";
+                            _getch();
+                        }
                     }
                     delete NewListIngredients;
                     break;}
