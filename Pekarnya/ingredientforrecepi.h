@@ -12,11 +12,15 @@ class IngredientForRecepi : public Ingredient{
 public:
    IngredientForRecepi();
 
+   IngredientForRecepi(int);
+
    IngredientForRecepi(string,int,string);
 
    IngredientForRecepi(ifstream *file);
 
-   IngredientForRecepi* GetPointr();   
+   IngredientForRecepi* GetPointr();
+
+   void SetED(string);
 };
 
 #endif // INGREDIENTFORRECEPI_H

@@ -1,6 +1,6 @@
 #include "ingredientforrecepi.h"
 
-IngredientForRecepi::IngredientForRecepi()
+IngredientForRecepi::IngredientForRecepi(int a):Ingredient(a)
 {
     string n, e, temp_v;
     char mas[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -26,33 +26,12 @@ IngredientForRecepi::IngredientForRecepi()
     }
     if(count == temp_v.size()){
         Value = stoi(temp_v);
-        cout << "Neobhodimo ukazat edinicu izmereniya ingredienta." << endl;
-        cout << "Tri edinicy izmereniya: 1 - gr. 2 - sht. 3 - ml. (ukazhite cifru)" << endl;
-        cout << "Edinica izmereniya ingredienta: ";
-        cin >> e;
-        _flushall();
-        if(e == "1"){
-            ED = "gr.";
-        }
-        else if(e == "2"){
-            ED = "sht.";
-        }
-        else if(e == "3"){
-            ED = "ml.";
-        }
-        else{
-            ED = "";
-            cout << "Vy vveli nekorrektnoe chislo!!!" << endl;
-            system("pause");
-        }
-    }
-    else{
-        temp_v = "-1";
-        Value = stoi(temp_v);
-        ED = "";
+    }else{
         cout << "Vy vveli nekorrektnoe chislo!!!" << endl;
         system("pause");
+        Value = -1;
     }
+
 
 
 }
@@ -68,4 +47,6 @@ IngredientForRecepi* IngredientForRecepi::GetPointr()
 {
     return this;
 }
-
+void IngredientForRecepi::SetED(string ED){
+    this->ED = ED;
+}

@@ -54,6 +54,12 @@ Ingredient::Ingredient()
         system("pause");
     }
     }
+
+Ingredient::Ingredient(int a)
+    {
+
+}
+
 Ingredient::Ingredient(string n,int v,string e)
    {
        Name = n;

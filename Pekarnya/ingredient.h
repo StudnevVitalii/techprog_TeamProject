@@ -16,6 +16,8 @@ protected:
 public:
    Ingredient();
 
+   Ingredient(int);
+
    Ingredient(string,int,string);
 
    Ingredient(ifstream *file);

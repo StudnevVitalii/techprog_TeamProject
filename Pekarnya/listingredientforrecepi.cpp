@@ -72,9 +72,10 @@ void ListIngredientForRecepi::Control(ListIngredients* sklad){
 
                     break;
             case 'a':{
-                    IngredientForRecepi* NewIngredientForRecepi = new IngredientForRecepi;
+                    IngredientForRecepi* NewIngredientForRecepi = new IngredientForRecepi(1);
                     IngredientForRecepi* TestIngredientForRecepi = ListIngredientForRecepi::Check(NewIngredientForRecepi->GetName());
-                    if (TestIngredientForRecepi == nullptr && NewIngredientForRecepi->GetValue() != -1 && NewIngredientForRecepi->GetED() != "" && Proverka(NewIngredientForRecepi, sklad)){
+                    if (TestIngredientForRecepi == nullptr && NewIngredientForRecepi->GetValue() != -1 && Proverka(NewIngredientForRecepi, sklad)){
+                        NewIngredientForRecepi->SetED((sklad->Check(NewIngredientForRecepi->GetName()))->GetED());
                         ListIngredientForRecepi::AddElement(*NewIngredientForRecepi);
                     }
                     else if(!Proverka(NewIngredientForRecepi, sklad)){
