@@ -89,7 +89,7 @@ void ListIngredientForRecepi::Control(ListIngredients* sklad, string root){
                     else{
                         cout << "that ingridient exist";
                         _getch();
-                    }
+                    }                    
                     break;}
             case 27: // esc
                 conec = false;

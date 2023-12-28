@@ -104,6 +104,10 @@ void UserInterface::Admin(){
                     break;
             case 27: // esc
                 conec = false;
+                WorkerList.Save();
+                Sklad.Save();
+                ListOfRecepi.Save();
+                ListOfReports.Save();
                 break;
             default:{}
             }
