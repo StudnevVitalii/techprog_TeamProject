@@ -62,21 +62,25 @@ void ListRecepi::Control(ListIngredients *sklad){
                         SelectedElement--;
                     }
                     break;
-                    case 72: // ^
+            case 72: // ^
                     if (SelectedElement != Spisok.begin())
                     {
                         SelectedElement--;
                     }
-            case 'd':
-
                     break;
-        case 'a':{
+            case 'd':
+                    if(!Spisok.empty()){
+                        Spisok.erase(SelectedElement);
+                        SelectedElement = Spisok.begin();
+                    }
+                    break;
+            case 'a':{
                     ListIngredientForRecepi* NewListRecepi = new ListIngredientForRecepi;
                     ListIngredientForRecepi* TestListRecepi = ListRecepi::Check(NewListRecepi->GetName());
                     if (TestListRecepi == nullptr){
                         ListRecepi::AddElement(*NewListRecepi);
                     }
-            break;}
+                    break;}
             case 13:
                     (*SelectedElement).Control(sklad);
                     break;
