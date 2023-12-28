@@ -1,5 +1,6 @@
 #include "ingredientforrecepi.h"
 
+
 IngredientForRecepi::IngredientForRecepi(int a):Ingredient(a)
 {
     string n, e, temp_v;
@@ -30,9 +31,11 @@ IngredientForRecepi::IngredientForRecepi(int a):Ingredient(a)
         cout << "Vy vveli nekorrektnoe chislo!!!" << endl;
         system("pause");
         Value = -1;
-    }
+    }}
 
 
+IngredientForRecepi::IngredientForRecepi():Ingredient()
+{
 
 }
 IngredientForRecepi::IngredientForRecepi(string n,int v,string e):Ingredient(n,v,e)
