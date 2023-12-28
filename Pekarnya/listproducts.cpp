@@ -18,6 +18,7 @@ ListProducts::ListProducts(ifstream *file)
     {
        Product* NewListProducts = new Product(file);
        ListProducts::AddElement(*NewListProducts);
+       delete NewListProducts;
        count++;
     }
 }
@@ -90,12 +91,12 @@ void ListProducts::Control(ListRecepi* ListOfRecepi,ListIngredients* sklad){
                                     cout << "Nelzya dobavit produkt v otchet (ne hvataet ingredientov na sklade)" << endl;
                                     system("pause");
                                 }
+                                delete NewListProducts;
                             }
                             else{
                                 cout << "Mozhno izmenyat tolko za tekushchij den!";
                                 system("pause");
                             }
-
                        break;}
             case 27: // esc
                 conec = false;

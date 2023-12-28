@@ -19,6 +19,7 @@ ListIngredientForRecepi::ListIngredientForRecepi(ifstream *file)
     {
        IngredientForRecepi* NewIngredientForRecepi = new IngredientForRecepi(file);
        ListIngredientForRecepi::AddElement(*NewIngredientForRecepi);
+       delete NewIngredientForRecepi;
        count++;
     }
 }
@@ -89,7 +90,8 @@ void ListIngredientForRecepi::Control(ListIngredients* sklad, string root){
                     else{
                         cout << "that ingridient exist";
                         _getch();
-                    }                    
+                    }
+                    delete NewIngredientForRecepi;
                     break;}
             case 27: // esc
                 conec = false;

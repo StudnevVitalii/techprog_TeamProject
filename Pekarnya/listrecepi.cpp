@@ -18,6 +18,7 @@ ListRecepi::ListRecepi(ifstream *file)
     {
        ListIngredientForRecepi* NewListRecepi = new ListIngredientForRecepi(file);
        ListRecepi::AddElement(*NewListRecepi);
+       delete NewListRecepi;
        count++;
     }
 }
@@ -80,6 +81,7 @@ void ListRecepi::Control(ListIngredients *sklad, string root){
                     if (TestListRecepi == nullptr){
                         ListRecepi::AddElement(*NewListRecepi);
                     }
+                    delete NewListRecepi;
                     break;}
             case 13:
                     (*SelectedElement).Control(sklad, root);
