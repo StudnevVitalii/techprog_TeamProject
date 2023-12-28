@@ -62,13 +62,17 @@ void ListWorkers::Control(){
                         SelectedElement--;
                     }
                     break;
-                    case 72: // ^
+            case 72: // ^
                     if (SelectedElement != Spisok.begin())
                     {
                         SelectedElement--;
                     }
+                    break;
             case 'd':
-
+                    if(!Spisok.empty() && SelectedElement->GetRoot() != "admin"){
+                        Spisok.erase(SelectedElement);
+                        SelectedElement = Spisok.begin();
+                    }
                     break;
             case 'a':{
                     Worker* NewListWorkers = new Worker;

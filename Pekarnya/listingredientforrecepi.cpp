@@ -63,13 +63,17 @@ void ListIngredientForRecepi::Control(ListIngredients* sklad){
                         SelectedElement--;
                     }
                     break;
-                    case 72: // ^
+            case 72: // ^
                     if (SelectedElement != Spisok.begin())
                     {
                         SelectedElement--;
                     }
+                    break;
             case 'd':
-
+                    if(!Spisok.empty()){
+                        Spisok.erase(SelectedElement);
+                        SelectedElement = Spisok.begin();
+                    }
                     break;
             case 'a':{
                     IngredientForRecepi* NewIngredientForRecepi = new IngredientForRecepi;
