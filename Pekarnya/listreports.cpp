@@ -18,6 +18,7 @@ ListReports::ListReports(ifstream *file)
     {
        ListProducts* NewListProducts = new ListProducts(file);
        ListReports::AddElement(*NewListProducts);
+       delete NewListProducts;
        count++;
     }
 }

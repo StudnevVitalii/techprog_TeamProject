@@ -18,6 +18,7 @@ ListIngredients::ListIngredients(ifstream *file)
     {
        Ingredient* NewListIngredients = new Ingredient(file);
        ListIngredients::AddElement(*NewListIngredients);
+       delete NewListIngredients;
        count++;
     }
 }
@@ -83,7 +84,7 @@ void ListIngredients::Control(string root){
                         cout << "that user already exist";
                         _getch();
                     }
-
+                    delete NewListIngredients;
                     break;}
             case 27: // esc
                 conec = false;

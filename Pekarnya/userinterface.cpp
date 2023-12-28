@@ -76,6 +76,7 @@ void UserInterface::Admin(){
     {
         ListProducts* NewListProducts = new ListProducts(today);
         ListOfReports.AddElement(*NewListProducts);
+        delete NewListProducts;
     }
 
 

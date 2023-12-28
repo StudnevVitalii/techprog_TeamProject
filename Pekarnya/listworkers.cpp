@@ -18,6 +18,7 @@ ListWorkers::ListWorkers(ifstream *file)
     {
        Worker* NewListWorkers = new Worker(file);
        ListWorkers::AddElement(*NewListWorkers);
+       delete NewListWorkers;
        count++;
     }
 }
@@ -83,7 +84,7 @@ void ListWorkers::Control(string root){
                         cout << "that user already exist";
                         _getch();
                     }
-
+                    delete NewListWorkers;
                     break;}
             case 27: // esc
                 conec = false;
