@@ -1,5 +1,6 @@
-#ifndef LISTS_H
-#define LISTS_H
+#ifndef LISTWORKERS_H
+#define LISTWORKERS_H
+
 #include <iostream>
 #include <list>
 #include <string>
@@ -7,9 +8,8 @@
 #include <cstdlib>
 #include <windows.h>
 #include <fstream>
-
-
-#include "elements.h"
+#include <ctime>
+#include "worker.h"
 
 using namespace std;
 
@@ -27,7 +27,9 @@ public:
     string GetName();
     void shoulist();
     void AddElement(Worker);
-    void Control();
+    void Control(string);
     Worker* Check(string N);
+    void Save();
 };
-#endif // LISTS_H
+
+#endif // LISTWORKERS_H
